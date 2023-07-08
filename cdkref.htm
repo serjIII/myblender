@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-0D22C629-4AB4-4102-81D8-F2551B86DAB7" />
+      <meta name="topic-type" content="concept" />
+      <title>CDK Object Reference</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-0D22C629-4AB4-4102-81D8-F2551B86DAB7"></a></span><div class="head">
+            <h1>CDK Object Reference</h1>
+         </div>
+         <div class="bodyProcess">
+            <p><span class="anchor_wrapper"><a name="GUID-D5652DD6-DD44-4472-A964-FF216B865ACB"></a></span>The Character Development Kit (CDK) is a set of Softimage Scripting Commands that
+               return special JScript objects. Each object provides access to various components
+               and related scene objects via its properties. For example:
+            </p>
+            <div class="codeBlock"><pre class="prettyprint">
+// Set up the guide collection containing the shoulder, elbow and hand
+var guidecoll = new ActiveXObject("XSI.Collection");
+guidecoll.Add( GetPrim("Null", "ShoulderGuide") ); 
+guidecoll.Add( GetPrim("Null", "ElbowGuide") ); 
+guidecoll.Add( GetPrim("Null", "HandGuide") ); 
+
+var lXfm = guidecoll(0).Kinematics.Global.Transform
+lXfm.SetTranslationFromValues( 0, 0, 0 );
+guidecoll(0).Kinematics.Global.Transform = lXfm;
+
+lXfm.SetTranslationFromValues( 4, 0, -2 );
+guidecoll(1).Kinematics.Global.Transform = lXfm;
+
+lXfm.SetTranslationFromValues( 8, 0, 0 );
+guidecoll(2).Kinematics.Global.Transform = lXfm;
+
+// Create the arm, getting the pointer to it from the command
+var RArmParent = GetPrim( "Null", "RArmParent" );
+var RArm = MakeArm( RArmParent, guidecoll, "R", null, 0, 0, 0, null, null, 0 );
+
+// Among other things, the custom Arm object gives you access to the parent of
+// the UpVector, a Skeleton collection of arm chain elements, the Bicep roll
+Application.LogMessage( "UpVector parent: " + RArm.UpVParent.Name );
+var eSkel = new Enumerator( RArm.Skel );
+Application.LogMessage( "Skeleton collection contains: " );
+for ( ; !eSkel.atEnd(); eSkel.moveNext() ) {
+	Application.LogMessage( "\t" + eSkel.item().Name );
+}
+Application.LogMessage( "BicepRoll: " + RArm.UpV.Name );
+
+// Output:
+// INFO : UpVector parent: RRoot
+// INFO : Skeleton collection contains: 
+// INFO : 	RRoot
+// INFO : 	RBicep
+// INFO : 	RForearm
+// INFO : 	RArmEff
+// INFO : BicepRoll: RArmUpV</pre></div>
+            <p><span class="anchor_wrapper"><a name="GUID-EED5B085-10FD-45CA-A623-2EED0573DF76"></a></span>This section provides the reference documentation for the following CDK objects:
+            </p>
+            <div class="table_Ruled">
+               <table cellpadding="0" cellspacing="0" class="ruled">
+                  <colgroup>
+                     <col align="left" />
+                     <col align="left" />
+                  </colgroup>
+                  <tr class="ruledHeading">
+                     <th class="table-heading"> <span class="anchor_wrapper"><a name="GUID-ED295AC3-4E5A-46DA-8CF1-1008097DC972"></a></span><p class="table-heading">Object</p> 
+                     </th>
+                     <th class="table-heading" align="left"> <span class="anchor_wrapper"><a name="GUID-8F6CA45B-2BDD-4399-8BF6-7262D274FFE3"></a></span><p class="table-heading">Available via</p> 
+                     </th>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-46C9E861-6976-4BE8-8EA9-54E297386106"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm">Biped</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-C6D6A92D-680E-4CF5-992B-609D49ECF715"></a></span> <a href="#!/url=./si_cmds/MakeBiped.html">MakeBiped</a> command
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-DB9D0A5D-11EE-47C8-95B9-9FAAF90E037C"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/Quadruped.htm">Quadruped</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-0E03AE86-1A05-4758-8D08-3BD9563AA623"></a></span> <a href="#!/url=./si_cmds/MakeQuadruped.html">MakeQuadruped</a> command
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-AFEECC9E-C12A-4849-A259-D200A6C70B80"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKHead.htm">Head</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-E65ED305-414A-4458-9397-3A7F81A0784A"></a></span> <a href="#!/url=./si_cmds/MakeHead.html">MakeHead</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-9710C662-B8B0-48AD-9979-B65C14FAA9EC"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0048">Biped.Head</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-AFECD0CA-73AA-4DF8-953E-1658D8BB5921"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0064">Quadruped.Head</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-314CAC37-B5FF-49AE-B087-D72686224581"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKArm.htm">Arm</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-4C739DE2-CA3C-4781-9DDF-08B7306D5A09"></a></span> <a href="#!/url=./si_cmds/MakeArm.html">MakeArm</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-CA16C03F-E052-49F4-BAFE-288798D380EC"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-004B">Biped.RArm</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-6EE755C0-531C-45B4-A927-BEBAF4ECBF47"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0054">Biped.LArm</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-F0B6DAB3-824E-4783-88A6-09D644E39A61"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKHand.htm">Hand</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-1F193294-8EAB-4DC7-9203-842420E5CB63"></a></span> <a href="#!/url=./si_cmds/MakeHand.html">MakeHand</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-D087E376-9970-4C7C-B417-69CEB2F9D6BC"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-004C">Biped.RHand</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-1576F1B5-460A-4822-8D6E-8C69E35E4E84"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0055">Biped.LHand</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-27897068-B634-42F0-9B7F-79467FFC1476"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKBelly.htm">Belly</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-CA132365-5B92-435B-8816-792369CAB1B3"></a></span> <a href="#!/url=./si_cmds/MakeBelly.html">MakeBelly</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-9F3CC90C-7A7D-4B76-AD58-DB33E7EDD9EC"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0049">Biped.Belly</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-9108B1EA-17DD-4153-B84A-2CFB57786C06"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0065">Quadruped.Belly</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-E5437D3C-D53C-46E6-82BC-55604E7A32F5"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKSpine.htm">Spine</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-26A18868-19DD-4B7B-8A55-FFDD0EB4C6BC"></a></span> <a href="#!/url=./si_cmds/MakeSpine.html">MakeSpine</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-9F70236A-B28B-4884-8854-04C17E6090BD"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-004A">Biped.SpineCurve</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-CFBDDCF2-6048-4AD3-AA5F-CB3419C51CE0"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0066">Quadruped.SpineCurve</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-2C3C3286-9D93-485C-9BA2-A5026179B2E8"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKTorso.htm">Torso</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-C8391EA7-1332-4290-9C35-9A9886F5A83E"></a></span> <a href="#!/url=./si_cmds/MakeTorso.html">MakeTorso</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-082D14E5-C0B9-48CB-AABC-535EAB5BB219"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0046">Biped.Torso</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-74333B4C-1469-4C37-A064-0AD6F9BE1EB5"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0062">Quadruped.Torso</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-CAC2CC2A-632F-4C7F-B93D-8DACFC3B03EC"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKTail.htm">Tail</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-6CB76CFC-9EFF-4A82-B3AE-DC0E674146CC"></a></span> <a href="#!/url=./si_cmds/MakeTail.html">MakeTail</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-3AF19214-D9F6-4567-80CF-D4D22D1E1C7F"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0047">Biped.Tail</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-159CAE0C-64F8-410F-A68F-6845166CDE67"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0063">Quadruped.Tail</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-FB1FE3CA-84BD-4281-A81E-87E42D7F3BA3"></a></span> <span class="char_link"><a href="#!/url=./files/CDKTorso.htm#WS59CC1705BE42794BBCB80457F107A6E8-008D">Torso.Tail</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-F6C584C1-C2E4-47BC-9ED3-5BBCC0BA3FDE"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKLeg.htm">Leg</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-5E6B17F7-79AB-48F4-9A9D-DD29FD03818B"></a></span> <a href="#!/url=./si_cmds/MakeLeg.html">MakeLeg</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-8042C130-8384-4E1A-8F7C-86CEF9042EFB"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-004D">Biped.RLeg</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-8472AE95-6F68-499D-AF23-0CD408E1C141"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0056">Biped.LLeg</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-2AFB22FF-26AF-42B0-838D-93FF51FDFBAF"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0067">Quadruped.RLeg</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-65DA4AB5-F9C9-4C5D-8B62-D812FD85B125"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-006A">Quadruped.LLeg</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-5E1914DE-C98B-4D16-8E9C-BBA14DC14F04"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKDogLeg.htm">DogLeg</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-9BCB122B-5424-4862-B1F3-AB249479E1D8"></a></span> <a href="#!/url=./si_cmds/MakeDogLeg.html">MakeDogLeg</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-C4B644CB-0A96-4455-B714-AB5CA656C95C"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0069">Quadruped.RDogLeg</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-B86CFA83-D5DA-49F5-A61C-49C5B10E935A"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-006C">Quadruped.LDogLeg</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-888C8463-AAA3-43EF-B00A-9A2188AA7128"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKFoot.htm">Foot</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-FC65CDF5-3E28-4D3B-8F30-51FC4F6527FE"></a></span> <a href="#!/url=./si_cmds/MakeFoot.html">MakeFoot</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-C4D2CD40-0204-4402-B6CA-9A0E85E8A004"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-004E">Biped.RFoot</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-2E25AA8D-362D-47F4-9CFA-268912216CE5"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0057">Biped.LFoot</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-44A3F4C9-F643-49CB-830B-67C6242AD247"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0068">Quadruped.RFoot</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-D25C38BE-587E-4597-AAE6-1304B391A0E6"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-006B">Quadruped.LFoot</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-F158BEB3-D3A5-409F-8CB0-52674042693A"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKJoint.htm">Joint</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-9C7C0273-B26C-4C7E-BC01-085425638014"></a></span> <a href="#!/url=./si_cmds/MakeJointCompression.html">MakeJointCompression</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-2E5FE419-601A-4C28-9F8D-B78E899A1D37"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0051">Biped.RElbow</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-632FD415-3E0C-4DED-A768-A0FDA9A68FAD"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0052">Biped.RKnee</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-4FD053DD-7565-4D27-8CC4-B5991397CB39"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-005A">Biped.LElbow</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-E698C33E-EBAA-480D-8854-1D9CBCAACA9C"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-005B">Biped.LKnee</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-8AC8D6AB-02E1-4B70-AD14-2E00BD25F055"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKShadow.htm">Shadow</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-0C2957BC-F023-45A5-91E0-B703D652E967"></a></span> <a href="#!/url=./si_cmds/MakeShadowChain.html">MakeShadowChain</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-2F6D050A-4FD2-4C45-9367-27C5D1EEA2E0"></a></span> <a href="#!/url=./si_cmds/MakeShadowSpine.html">MakeShadowSpine</a> command
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-FE41C5B3-EA67-4D73-B7F8-E9160CBEBABA"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKBicepRoll.htm">BicepRoll</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-590B25C6-A2AE-43CD-A08E-BD9CC64E9C53"></a></span> <a href="#!/url=./si_cmds/MakeBicepRoll.html">MakeBicepRoll</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-E57B564A-8F24-4080-A9B2-FBF7B226E8DD"></a></span> <span class="char_link"><a href="#!/url=./files/CDKArm.htm#WS59CC1705BE42794BBCB80457F107A6E8-0077">Arm.BicepRoll</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-83A09121-6871-4362-A8DE-74A3B17553A4"></a></span> <span class="char_link"><a href="#!/url=./files/CDKLeg.htm#WS59CC1705BE42794BBCB80457F107A6E8-0098">Leg.ThighRoll</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-C92331B1-AEF7-44A3-BCD5-D7FDD007DEA2"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKForeArmRoll.htm">ForeArmRoll</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-53919F3F-6117-4849-89A6-D47C3689E193"></a></span> <a href="#!/url=./si_cmds/MakeForearmRoll.html">MakeForearmRoll</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-BD4C529B-6082-49F6-B9A9-34ED4E81FE1F"></a></span> <span class="char_link"><a href="#!/url=./files/CDKArm.htm#WS59CC1705BE42794BBCB80457F107A6E8-0078">Arm.ForeArmRoll</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-0941382E-CDEB-417A-8E6F-5E0E6E4437DC"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKControlSpline.htm">ControlSpline</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-8414E973-8222-448D-A7CA-E94D3C4C01F0"></a></span> <a href="#!/url=./si_cmds/MakeControlSplines.html">MakeControlSplines</a> command
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-FF5E22CC-B858-45FF-A692-AB672CD8ED46"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKPointSlide.htm">PointSlide</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-8A29445E-E8CD-484B-99F9-4AA9010F02A2"></a></span> <a href="#!/url=./si_cmds/Make2PointSlide.html">Make2PointSlide</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-25D841A1-985C-4663-8D31-0D562262F4BE"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-004F">Biped.RHip</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-40DC5F1F-12D0-43B0-BE04-B9298AB61254"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0058">Biped.LHip</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-2ED6D79B-C3B2-4907-A1FF-13D55D2BEB93"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0053">Biped.RBellySlide</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-0A274380-F73A-42DE-8FE8-C89901AE30A1"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-005C">Biped.LBellySlide</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledOddRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-DB0C7B1A-972D-416E-9E28-3864AABAFCE3"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/ThighSlide.htm">ThighSlide</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-C0505CEC-8289-4BBB-9B34-438131544458"></a></span> <a href="#!/url=./si_cmds/MakeThighSlide.html">MakeThighSlide</a> command
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-643ECC6E-2AF2-49D5-A174-AC7E04413B4E"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0050">Biped.RThigh</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-C09D380C-3B33-4F66-813B-AB393569F3DB"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0059">Biped.LThigh</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+                  <tr class="ruledEvenRow">
+                     <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-3A5A24E6-87EF-4141-A4D0-BA7D04383719"></a></span><p class="table-body"> <span class="char_link"><a href="#!/url=./files/CDKUI.htm">UI</a></span> 
+                        </p> 
+                     </td>
+                     <td class="table-body" align="left"> 
+                        <ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-E55262F6-44B9-4113-90AC-EC9812411357"></a></span> <span class="char_link"><a href="#!/url=./files/CDKBiped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0045">Biped.UI</a></span> property
+                              </p> 
+                           </li>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-8D219655-232A-4103-AC9B-C81EC242BA10"></a></span> <span class="char_link"><a href="#!/url=./files/Quadruped.htm#WS59CC1705BE42794BBCB80457F107A6E8-0061">Quadruped.UI</a></span> property
+                              </p> 
+                           </li>
+                        </ul> 
+                     </td>
+                  </tr>
+               </table>
+            </div>
+         </div><span class="noindex">
+            <div class="topic-list">
+               <h4 class="related">Topics in this section</h4>
+               <ul class="jumplist">
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKBiped.htm"> Biped</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/Quadruped.htm"> Quadruped</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKHead.htm"> Head</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKArm.htm"> Arm</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKHand.htm"> Hand</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKBelly.htm"> Belly</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKSpine.htm"> Spine</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKTorso.htm"> Torso</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKTail.htm"> Tail</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKLeg.htm"> Leg</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKDogLeg.htm"> DogLeg</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKFoot.htm"> Foot</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKJoint.htm"> Joint</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKShadow.htm"> Shadow</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKBicepRoll.htm"> BicepRoll</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKForeArmRoll.htm"> ForeArmRoll</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKControlSpline.htm"> ControlSpline</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKPointSlide.htm"> PointSlide</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/ThighSlide.htm"> ThighSlide</a></li>
+                  <li class="topiclist-litem"><a href="#!/url=./files/CDKUI.htm"> UI</a></li>
+               </ul>
+            </div></span><div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

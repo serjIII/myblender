@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-2E35A4F0-F882-4275-BD7D-EFAA51D96341" />
+      <meta name="indexterm" content="ControlSpline" />
+      <meta name="topic-type" content="concept" />
+      <title>ControlSpline</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-2E35A4F0-F882-4275-BD7D-EFAA51D96341"></a></span><div class="head">
+            <h1> ControlSpline</h1>
+         </div>
+         <div class="bodyProcess">
+            <p><span class="anchor_wrapper"><a name="GUID-8D687B33-76C8-45C7-B255-E0462FBE74D9"></a></span>The <em class="strong">ControlSpline</em> object represents controllers attached to a curve or curves, giving layered deformation
+               with precise control over evenly distributed slides and offsets. This is especially
+               useful for spline-based facial setups.
+            </p>
+            <p><span class="anchor_wrapper"><a name="GUID-54AF1863-3794-4B52-858A-B8EEF71FA8EF"></a></span>Three controllers are created for each control point on the curve. Point controllers
+               move the control points of the curve. Path controllers are path constrained to the
+               curve at evenly spaced length percentages. Offset controls are used for additional
+               translation (like pinching of wrinkes in facial expressions) or twising along a curve.
+            </p>
+            <div class="section"><span class="anchor_wrapper"><a name="WS59CC1705BE42794BBCB80457F107A6E8-00B8"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-ED8A513E-8071-450F-8249-5FA7B666D80D"></a></span>Returned by
+               </h2> 
+               <p><span class="anchor_wrapper"><a name="GUID-3B8D5C9A-BC3B-4152-A0E9-4D24D17855D5"></a></span> <a href="#!/url=./si_cmds/MakeControlSplines.html">MakeControlSplines</a> 
+               </p> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS59CC1705BE42794BBCB80457F107A6E8-00B9"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-465A7117-4E9B-418F-A4DB-D5D2E057CDF7"></a></span>Properties
+               </h2> 
+               <div class="table_Ruled">
+                  <table cellpadding="0" cellspacing="0" class="ruled">
+                     <colgroup>
+                        <col align="left" />
+                        <col align="left" />
+                        <col align="left" />
+                     </colgroup>
+                     <tr class="ruledHeading">
+                        <th class="table-heading"> <span class="anchor_wrapper"><a name="GUID-4A73C202-6F9B-4D91-8ED6-6F5D7AABD944"></a></span><p class="table-heading">Property Name</p> 
+                        </th>
+                        <th class="table-heading" align="left"> <span class="anchor_wrapper"><a name="GUID-3E1FA97B-6F60-481C-9FE5-D26FE627A155"></a></span><p class="table-heading">Type</p> 
+                        </th>
+                        <th class="table-heading" align="left"> <span class="anchor_wrapper"><a name="GUID-44310091-A1F8-43C1-9B83-674E153063C5"></a></span><p class="table-heading">Description</p> 
+                        </th>
+                     </tr>
+                     <tr class="ruledOddRow">
+                        <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-A23E59CC-9762-434D-A520-1573C7914527"></a></span><p class="table-body"> <span class="code" translate="no">PointControls</span> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-08AC6F0A-906D-4FF1-BB8E-CA510EB67C77"></a></span><p class="table-body"> <a href="#!/url=./si_om/XSICollection.html">XSICollection</a> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-323938D1-6463-4390-A435-DEC61555CFC1"></a></span><p class="table-body">a collection of control objects for the points of the curves</p> 
+                        </td>
+                     </tr>
+                     <tr class="ruledEvenRow">
+                        <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-D01A9E87-365C-432D-AE0A-30DF7E54A528"></a></span><p class="table-body"> <span class="code" translate="no">PathControls</span> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-919966CA-AF87-4D1F-A61D-7DAD50A0D33C"></a></span><p class="table-body"> <a href="#!/url=./si_om/XSICollection.html">XSICollection</a> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-601D3559-8BB2-4801-9F17-1C574BDB6BF2"></a></span><p class="table-body">a collection of control objects path contrained to the curves</p> 
+                        </td>
+                     </tr>
+                     <tr class="ruledOddRow">
+                        <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-042B86D3-CE4B-4CE5-825A-1B8A2775ECDA"></a></span><p class="table-body"> <span class="code" translate="no">Controls</span> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-73716158-EAAC-4685-8B56-32F43493130E"></a></span><p class="table-body"> <a href="#!/url=./si_om/XSICollection.html">XSICollection</a> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-A74BC362-63CD-4594-8FED-B15D2D42282D"></a></span><p class="table-body">a collection of control objects for the offsets of the curves</p> 
+                        </td>
+                     </tr>
+                     <tr class="ruledEvenRow">
+                        <td class="table-body"> <span class="anchor_wrapper"><a name="GUID-65902B3B-2321-4796-AF88-018DCAB67C1D"></a></span><p class="table-body"> <span class="code" translate="no">EnvGroup</span> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-F4A01EA2-C08C-407C-A813-76D994CE1D45"></a></span><p class="table-body"> <a href="#!/url=./si_om/Group.html">Group</a> 
+                           </p> 
+                        </td>
+                        <td class="table-body" align="left"> <span class="anchor_wrapper"><a name="GUID-A22380D9-60A0-4D08-A357-28D7F69EB88F"></a></span><p class="table-body">a collection of objects to be Enveloped</p> 
+                        </td>
+                     </tr>
+                  </table>
+               </div> 
+               <p><span class="anchor_wrapper"><a name="GUID-5E7DFA5E-38C4-4A88-85F4-BF7757E832AB"></a></span>See <span class="char_link"><a href="#!/url=./files/cdkref.htm">CDK Object Reference</a></span> for complete list of objects available in the Character Development Kit.
+               </p> 
+            </div>
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

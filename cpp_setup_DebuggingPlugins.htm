@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-4BD463E6-FF33-4DAD-8BBE-2BAFC9454215" />
+      <meta name="indexterm" content="debugging: C++ plug-ins" />
+      <meta name="indexterm" content="plug-ins: debugging, C++" />
+      <meta name="indexterm" content="GNU Project Debugger" />
+      <meta name="indexterm" content="gbd" />
+      <meta name="indexterm" content="debugging: C++ plug-ins" />
+      <meta name="topic-type" content="concept" />
+      <title>Debugging Plug-ins</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-4BD463E6-FF33-4DAD-8BBE-2BAFC9454215"></a></span><div class="head">
+            <h1>Debugging Plug-ins</h1>
+         </div>
+         <div class="bodyProcess">
+            <div class="section"><span class="anchor_wrapper"><a name="WS374443AF6891FC44B727423E4A1F220C-0013"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-1C5304B1-7A2D-4954-A9BD-8899157761D3"></a></span>To debug on Windows:
+               </h2> <span class="anchor_wrapper"><a name="GUID-AC05B379-DB1C-467F-B40A-B39803845CD0"></a></span><ol type="1" start="1">
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-289DCC0A-FDA6-4D86-896E-DC5B1D9D0A01"></a></span>Compile a Debug version of your plug-in and then start Softimage. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-6C7F84EF-3C8C-4443-8736-5C3F3CAA00B8"></a></span>In Visual Studio, select <span class="MenuCascade" id="GUID-4681B000-F668-4D11-9AE2-8D29B878A67E">Tools <img src="../images/ac.menuaro.gif" /> Attach to Process</span>. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-1744412A-7A2B-4993-9730-02D37B4454B9"></a></span>Select <span class="code" translate="no">XSI.exe</span> in the list of <span class="MenuCascade" id="GUID-FA670594-FE50-493E-BD6B-3F4466CDE004">Available Processes</span>, and then click <span class="MenuCascade" id="GUID-F6F5B303-9C93-401A-A2D2-F298139CCEC3">Attach</span>. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-40A4738A-1C84-401B-8FBA-BDD7247F733D"></a></span>Set some breakpoints and start debugging. 
+                     </p> 
+                  </li>
+               </ol> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS374443AF6891FC44B727423E4A1F220C-0014"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-62DF4111-F3E8-4E29-A17A-82BF1FF7B2FD"></a></span>To debug on Linux with the GNU Project Debugger
+               </h2> 
+               <p><span class="anchor_wrapper"><a name="GUID-6AB20AFD-9E81-40D6-BC4E-B5821D005A58"></a></span>You can start the <em class="strong">GNU Project Debugger</em> (GDB) with Softimage and have pending break points even if the library is not loaded.
+                  However, the library must have been loaded once. 
+               </p> <span class="anchor_wrapper"><a name="UL_5FB8E041680242BEA3AE4A217B913332"></a></span><ul>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-D9F85B44-D9BB-4AB4-AAF6-DD8CA269C89B"></a></span>Start Softimage in GDB, load the library, and put in the break point. If you restart
+                        Softimage you still have your pending break points. 
+                     </p> 
+                     <div><span class="anchor_wrapper"><a name="GUID-C7BD7F9A-461A-4A4B-BA5F-800EFFB208C8"></a></span><div class="note-tip"><span class="label">TIP:</span>To force Softimage to pre-load specific DSOs, set the <span class="code" translate="no">XSI_PRELOAD_DLLS_LIST</span> environment variable to a filename containing list of DSO paths separated by the
+                           newline character (<span class="code" translate="no">\n</span>). 
+                        </div>
+                     </div> 
+                  </li>
+               </ul> 
+            </div>
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

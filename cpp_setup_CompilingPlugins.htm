@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-03FB0FFE-0315-40F1-BB7C-555757C49EED" />
+      <meta name="indexterm" content="environment: recommendations for C++" />
+      <meta name="indexterm" content="setup: C++ recommendations" />
+      <meta name="indexterm" content="C++ API: compiling Softimage plug-ins: on Linux" />
+      <meta name="indexterm" content="compiling (C++ API): Softimage plug-ins: on Linux" />
+      <meta name="indexterm" content="C++ API: compiling Softimage plug-ins: on Windows" />
+      <meta name="indexterm" content="compiling (C++ API): Softimage plug-ins: on Windows" />
+      <meta name="topic-type" content="concept" />
+      <title>Compiling Plug-ins</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ reflinkdata.push(["version", "si_cpp/group__RenderMapDefine.html#gad6034d1c8c050eba0cf6533a8e6f3785", "C++ API Reference", "../"]); 
+reflinkdata.push(["set", "si_cpp/group__RenderMapDefine.html#ga793ad1cfa149967fe4b97fc66251b831", "C++ API Reference", "../"]); 
+</script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-03FB0FFE-0315-40F1-BB7C-555757C49EED"></a></span><div class="head">
+            <h1>Compiling Plug-ins</h1>
+         </div>
+         <div class="bodyProcess">
+            <div class="section"><span class="anchor_wrapper"><a name="WS374443AF6891FC44B727423E4A1F220C-0008"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-CB4FB486-01E6-488D-9741-2EED3BD4DAB4"></a></span>About the Softimage Version
+               </h2> 
+               <p><span class="anchor_wrapper"><a name="GUID-FF7EB91E-9E5B-4593-844D-D5314393426B"></a></span>The Softimage version information consists of the runtime version and compilation
+                  version. The compilation version is used for the compilation check. You can access
+                  the runtime version through the <a href="#!/url=./si_cpp/classXSI_1_1Application.html#GetVersion">Application::GetVersion</a> function, and the compilation version through the <a href="#!/url=./si_cpp/xsi__version_8h.html">XSI_VERSION</a> preprocessor define. 
+               </p> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS374443AF6891FC44B727423E4A1F220C-0009"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-4F1DFA89-FCFF-44D2-8594-32A611E182E1"></a></span>Recommended Setup
+               </h2>   <span class="anchor_wrapper"><a name="UL_7C6180F2368F433C83412A4D16D65224"></a></span><ul>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-9D87FB44-C29D-445F-93F3-2A949FA16488"></a></span>For Linux, the recommended compiler is <em class="strong">gcc-4.1.2</em>. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-C173996F-7BAE-41EA-AD30-FB7D14E2DEF1"></a></span>For Windows the recommended development environment is <em class="strong">Visual Studio 2012 Update 4</em>. 
+                     </p> 
+                  </li>
+               </ul> 
+               <div><span class="anchor_wrapper"><a name="GUID-D65A3BBA-BB45-4869-A90F-48696AE93E23"></a></span><div class="note-note"><span class="label">NOTE:</span>You can create <span class="charspan-msgph" translate="no">Visual Studio 2010</span> and <span class="charspan-msgph" translate="no">Visual Studio 2012</span> projects from the plug-in wizard. 
+                  </div>
+               </div> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS374443AF6891FC44B727423E4A1F220C-000A"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-A4666641-27F7-4454-8E1A-CBB2873EA2A2"></a></span> Compiling Plug-ins in Linux
+               </h2>   <span class="anchor_wrapper"><a name="GUID-F929C237-D4AE-4760-B40B-9C03B74B8A3A"></a></span><ol type="1" start="1">
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-38667BEC-2BED-4D6E-96DA-7650EB0271A4"></a></span>In a shell (tcsh) window, type: 
+                     </p> <span class="code" translate="no">source &lt;Softimage_home_directory&gt;/&lt;.xsi_version&gt;</span> 
+                     <p><span class="anchor_wrapper"><a name="GUID-6A74BAD7-9A6F-4CB6-A07E-D2FC2014441F"></a></span>This action makes sure that the environment variables such as <span class="code" translate="no">XSISDK_ROOT</span> are set correctly to avoid the build and link errors. 
+                     </p> 
+                     <div><span class="anchor_wrapper"><a name="GUID-3AD48BC7-BB71-4ABC-AC72-D338122DA25D"></a></span><div class="note-tip"><span class="label">TIP:</span>In the Plug-ins Tree, right-click the <span class="MenuCascade" id="GUID-1D21C34E-8A97-4085-AC2F-582695EEC58A">Plug-ins</span> node and select <span class="MenuCascade" id="GUID-FD98F168-C938-4033-B4F1-9A2289D7A0F2">Command Prompt</span> to open an xterm window. 
+                        </div>
+                     </div> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-3D08BE40-76A1-4CEF-BC09-071119C7C26B"></a></span>Change the directory to the location of the plug-in source code. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-C4DD3A8E-8BBC-45D8-897D-8EE0E07077D8"></a></span>To remove all intermediate files before building the example, run the following command:
+                        
+                     </p> <span class="code" translate="no">gmake clean</span> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-DFB4EF57-1018-473D-92BB-798C5042AC5E"></a></span>To compile the example, run the following command: 
+                     </p> <span class="code" translate="no">gmake</span> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-009B1E98-888A-4A5B-AEC4-6C8AF135929B"></a></span>Do one of the following to load the plug-in into Softimage: 
+                     </p> <span class="anchor_wrapper"><a name="UL_0ADDA0395AF543DEA367B96A206E2817"></a></span><ul>
+                        <li> 
+                           <p><span class="anchor_wrapper"><a name="GUID-D709E692-39E5-42F1-A2CF-8F49C914BD3A"></a></span>In the Plug-in Manager, click <span class="MenuCascade" id="GUID-A5C0FB53-DDF0-4018-A7FE-24482565DB97">Update All</span>. 
+                           </p> 
+                        </li>
+                        <li> 
+                           <p><span class="anchor_wrapper"><a name="GUID-65E661FB-1BAD-44CF-9A15-4681F36C8C74"></a></span>In the Plug-in Manager, click <span class="MenuCascade" id="GUID-9D92EF0A-C9CF-470C-983F-B7FE481CBC84">Load</span>, locate the plug-in, and click <span class="MenuCascade" id="GUID-B934121A-4932-48BE-A299-6AEDFF64B11D">OK</span>. 
+                           </p> 
+                        </li>
+                        <li> 
+                           <p><span class="anchor_wrapper"><a name="GUID-8E17FC01-1CCA-49DD-B37A-8A19C6281727"></a></span>In the Plug-in Manager, right-click the <span class="MenuCascade" id="GUID-DB6869FD-8D13-4F43-875A-F08CCFE35E76">Plug-ins</span> folder, and select <span class="MenuCascade" id="GUID-2A39854D-C41D-4D9A-9F5D-968EBC481EAD">Update</span>. 
+                           </p> 
+                        </li>
+                     </ul> 
+                  </li>
+               </ol> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS374443AF6891FC44B727423E4A1F220C-000B"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-78390864-A60F-4F24-BF77-ACADC56F95F7"></a></span> Compiling Plug-ins in Windows
+               </h2>   
+               <p><span class="anchor_wrapper"><a name="GUID-2B80E00F-E2D5-4032-A4DD-2BE5F1872FF2"></a></span>You must start Visual Studio with the correct options that are set up using a batch
+                  file (<span class="filePath" translate="no">.bat</span>). 
+               </p> <span class="anchor_wrapper"><a name="GUID-307F60BC-3358-475B-A90E-10D26241B916"></a></span><ol type="1" start="1">
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-40E9E7C7-B90F-488A-9CCC-8CA00C3D3051"></a></span>Set up a 64-bit environment as follows: <span class="anchor_wrapper"><a name="UL_A525103B064D4EDF94FE434C89E7BF67"></a></span><ul>
+                           <li> 
+                              <p><span class="anchor_wrapper"><a name="GUID-B76F5649-5F65-45CF-9F24-E44920F85FDF"></a></span>Save the following code snippet in a batch file (for example, <span class="filePath" translate="no">VC64XSIx64.bat</span>). 
+                              </p> 
+                              <div><span class="anchor_wrapper"><a name="GUID-021B7400-8BFC-424C-8519-3259869BDAAA"></a></span><div class="note-note"><span class="label">NOTE:</span>The path names used in the following code snippet are examples. You must use the actual
+                                    Softimage installation directory and Visual Studio installation directory in the path
+                                    names. 
+                                 </div>
+                              </div> 
+                           </li>
+                        </ul> 
+                        <div class="codeBlock"><pre class="prettyprint">
+@echo off
+
+call "C:\Program Files\Autodesk\Softimage &lt;<a href="javascript:void(0)" data="version" class="a_multireflink">version</a>&gt;\Application\bin\setenv.bat"
+call "C:\Program Files (x86)\Microsoft Visual Studio &lt;<a href="javascript:void(0)" data="version" class="a_multireflink">version</a>&gt;\VC\vcvarsall.bat" amd64
+
+<a href="javascript:void(0)" data="set" class="a_multireflink">set</a> PATH
+<a href="javascript:void(0)" data="set" class="a_multireflink">set</a> "XSISDK_ROOT = C:\Program Files\Autodesk\Softimage &lt;<a href="javascript:void(0)" data="version" class="a_multireflink">version</a>&gt;\XSISDK"
+
+"C:\Program Files (x86)\Microsoft Visual Studio &lt;<a href="javascript:void(0)" data="version" class="a_multireflink">version</a>&gt;\Common7\IDE\devenv.exe"
+
+echo on
+</pre></div> 
+                     </p> 
+                     <div><span class="anchor_wrapper"><a name="GUID-E89AF3E5-6A47-4EA7-8C5A-F42F34634AD2"></a></span><div class="note-note"><span class="label">NOTE:</span>You must use the batch files to set up and start Visual Studio so that the environment
+                           variables such as <span class="code" translate="no">XSISDK_ROOT</span> are set properly to avoid the build and link errors. These batch files simulate <span class="char_link"><a href="#!/url=./files/cus_addons_WorkingwiththePluginTree.htm#WS8AD400B78794354E8F5A74BCE7CD86FD-0033">opening a Softimage command prompt</a></span> to start Visual Studio. 
+                        </div>
+                     </div> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-9DA6FAD8-8F6D-4F4A-ABEA-827F363A4B68"></a></span>Open the project file <span class="filePath" translate="no">.vcxproj</span> in Visual Studio. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-8FFB0E2F-2049-4128-A36F-3B9386394BD2"></a></span>Select <span class="MenuCascade" id="GUID-040E06AC-DFEB-4E17-91A3-C89809182595">Build <img src="../images/ac.menuaro.gif" /> Configuration Manager</span>. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-CECB3792-A5FE-4428-90FA-1C60C760CFD8"></a></span>In the <span class="MenuCascade" id="GUID-AC4F25D6-9D53-4208-9AE1-6B42E8582E77">Active solution configuration</span> drop-down list, select either <span class="code" translate="no">Debug x64</span> or <span class="code" translate="no">Release x64</span>. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-02952F14-F3B6-47CE-9C88-DED5F2D3849E"></a></span>In the <span class="MenuCascade" id="GUID-25B3AB2C-02CC-4113-9C76-0174CC043CCE">Active solution platform</span> drop-down list, select <span class="code" translate="no">New</span>, and then type <span class="code" translate="no">x64</span> in the <span class="MenuCascade" id="GUID-EBAAA1DE-6601-4315-8F35-2BA28157438F">New Solution Platform</span> dialog. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-8B2ED7E7-5C56-4A28-A595-E4D975A30800"></a></span>Build the DLL. 
+                     </p> 
+                     <p><span class="anchor_wrapper"><a name="GUID-B97FEBD4-8F2C-42F7-8FE4-064131EF1F4A"></a></span>You are prompted to save a Solution File (.sln) when you build the plug-in for the
+                        first time. 
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-8C1C9C46-E3E8-4851-A0C8-B27772B14D76"></a></span>Load the plug-in into Softimage by doing one of the following: 
+                     </p> <span class="anchor_wrapper"><a name="UL_B35CBDD6D6674168925A1BF234E03960"></a></span><ul>
+                        <li> 
+                           <p><span class="anchor_wrapper"><a name="GUID-AA3010F6-9B9B-4CD2-A042-81B44219BA2E"></a></span>In the Plug-in Manager, click <span class="MenuCascade" id="GUID-C3C08001-1303-4D7B-903C-F3623197579D">Update All</span>. 
+                           </p> 
+                        </li>
+                        <li> 
+                           <p><span class="anchor_wrapper"><a name="GUID-4523FB9E-F018-4672-9942-F9A0CEA9B626"></a></span>In the Plug-in Manager, click <span class="MenuCascade" id="GUID-4CD7F87B-B1B4-4B8A-B9AA-FC65EFF6A404">Load</span>, locate the plug-in .DLL, and click <span class="MenuCascade" id="GUID-5A907079-A56F-46ED-A80C-0326C3296987">OK</span>. 
+                           </p> 
+                        </li>
+                     </ul> 
+                  </li>
+               </ol> 
+            </div>
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

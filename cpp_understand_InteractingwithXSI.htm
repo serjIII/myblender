@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-DB74AF66-F804-402F-A966-56A8F568C4D1" />
+      <meta name="indexterm" content="C++ Example: connecting to Softimage" />
+      <meta name="indexterm" content="C++ Example: creating an X3DObject" />
+      <meta name="indexterm" content="C++ Example: iterating a list of children" />
+      <meta name="indexterm" content="C++ Example: accessing parameters" />
+      <meta name="topic-type" content="concept" />
+      <title>Interacting with Softimage</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-DB74AF66-F804-402F-A966-56A8F568C4D1"></a></span><div class="head">
+            <h1>Interacting with Softimage</h1>
+         </div>
+         <div class="bodyProcess">
+            <p><span class="anchor_wrapper"><a name="GUID-DA65977E-E267-4CE3-8456-3A91353AF437"></a></span>This section provides a number of examples of how to use the C++ API class library
+               to interact with Softimage. For more examples of code and information on each individual
+               class, see the C++ API Reference. You can also refer to the <a href="#!/url=./examples/Addons/ImportExport/netview_ImportExport.htm">ImportExport</a> example located in the examples folder of the Softimage SDK installation directory.
+               
+            </p>
+            <div><span class="anchor_wrapper"><a name="GUID-4E8E5C8B-CC80-4D1D-A107-B40C2290B9DC"></a></span><div class="note-tip"><span class="label">TIP:</span> 
+                  <p><span class="anchor_wrapper"><a name="GUID-F9D5392C-EDD0-4F8C-B0DC-5CBFF172216A"></a></span>The following code fragments comprise a sampling of how to use the C++ API. For more
+                     extensive examples, see the C++ API Reference. 
+                  </p> 
+               </div>
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS7902B6CCE0739F4D8C2836B524C1EB2F-000D"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-846AF861-5204-44E4-96FD-F2BDD61BFBBF"></a></span> C++ Example: connecting to Softimage
+               </h2>  
+               <div class="codeBlock"><pre class="prettyprint">
+// gets the application object, which you can use to communicate with Softimage
+// eg., 
+Application app;
+app.LogMessage( "Welcome to Softimage!" );
+</pre></div> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS7902B6CCE0739F4D8C2836B524C1EB2F-000E"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-962F3B21-1C5B-4A5F-95C2-F6F49531D1FB"></a></span> C++ Example: creating an X3DObject
+               </h2>  
+               <div class="codeBlock"><pre class="prettyprint">
+// returns the reference root object
+namespace XSI;
+Application app;
+CRef rootRef = app.GetActiveSceneRoot();
+
+// create object with a reference object
+X3DObject rootObj(rootRef);
+</pre></div> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS7902B6CCE0739F4D8C2836B524C1EB2F-000F"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-720E7EC4-7FCB-48D7-A4B9-A3CD85880DD6"></a></span> C++ Example: iterating a list of children
+               </h2>  
+               <div class="codeBlock"><pre class="prettyprint">
+// returns the reference root object
+namespace XSI;
+CRef rootRef = app.GetActiveSceneRoot();
+
+// create object with a reference object
+X3DObject rootObj(rootRef);
+
+// get children recursively
+CRefArray childArray = rootObj.FindChildren(L"",L"",L"");
+// count number of children
+for ( long i=0; i&lt;childArray.GetCount();i++ )
+{
+	CRef ref = childArray[i];
+	if ( ref.IsA( xsi3DObjectType ) )
+	{
+		dw3DObjectCount++;
+	}
+	else if ( ref.IsA( xsiModelType ) )
+	{
+		dwModelCount++;
+	}
+	else if ( ref.IsA( xsiChainElementType ) )
+	{
+		dwChainElementCount++;
+	}
+	else if (ref.IsA( xsiDirectedObjectType ) )
+	{
+		dwDirectedObjectCount++;
+	}
+	else if (ref.IsA( xsiNullType ) )
+	{
+		dwNullCount++;
+	}
+	else if (ref.IsA( xsiParticleCloudType ) )
+	{
+		dwParticleCloudCount++;
+	}
+	else
+	{
+		dwUnknownCount++;
+	}
+}
+</pre></div> 
+            </div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS7902B6CCE0739F4D8C2836B524C1EB2F-0010"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-729A385F-EDCD-4BBD-B952-DD90F49E8C21"></a></span> C++ Example: accessing parameters
+               </h2>  
+               <div class="codeBlock"><pre class="prettyprint">
+using namespace XSI;
+Application app;
+
+CRefArray array;
+GetSomeObjects(array,app);
+
+// Find all X3DObjects in the scene and add them to the ref array
+CStringArray emptyArray;
+Model root( app.GetActiveSceneRoot() );
+
+array += root.FindChildren( L"", L"", emptyArray, true );
+
+// add grid's parameters to ref array
+X3DObject grid;
+root.AddGeometry( L"Grid", L"MeshSurface", L"", grid );
+
+array += grid.GetParameters();
+
+for (long i = 0; i &lt; array.GetCount(); ++i )
+{
+	app.LogMessage(L"");
+
+	CRef ref(array[i]);
+	app.LogMessage( L"&gt;&gt;Reference object class type: " + ref.GetClassName() );
+
+	if ( ref.IsA( siSIObjectID ) )
+	{
+		SIObject siobj(ref);
+		app.LogMessage( L"\tObject name: " + siobj.GetName() );
+	}
+
+	if ( ref.IsA( siX3DObjectID ) )
+	{
+		X3DObject xobj(ref);
+		app.LogMessage( L"\tNumber of children : " 
+				+ CValue(xobj.GetChildren().GetCount()).GetAsText() );
+	}
+
+	if ( ref.IsA( siParameterID ) )
+	{
+		Parameter param(ref);
+		app.LogMessage( L"\tParameter's value: " + param.GetValue().GetAsText() );
+	}
+}
+</pre></div> 
+            </div>
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

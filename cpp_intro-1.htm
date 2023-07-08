@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-612EF13E-4267-48E7-A6C4-DD1B35BC8E14" />
+      <meta name="indexterm" content="Automatic Object Memory Management" />
+      <meta name="indexterm" content="error handling: C++" />
+      <meta name="topic-type" content="concept" />
+      <title>About the C++ API</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-612EF13E-4267-48E7-A6C4-DD1B35BC8E14"></a></span><div class="head">
+            <h1>About the C++ API</h1>
+         </div>
+         <p><span class="anchor_wrapper"><a name="GUID-259B7295-3180-41C1-99CF-767C25828096"></a></span>The C++ Application Programmer's Interface (API) is a library of C++ classes that
+            gives C++ developers access to the Softimage object model. The library uses, among
+            others, these kinds of classes:
+         </p>
+         <ul>
+            <li> 
+               <p><span class="anchor_wrapper"><a name="GUID-831EEAB4-CAB4-411C-AA95-D98290B0CEA0"></a></span> <em class="strong">API classes</em>—these classes, the mutator and accessor classes, encapsulate the methods applicable
+                  to internal Softimage objects.
+               </p> 
+            </li>
+            <li> 
+               <p><span class="anchor_wrapper"><a name="GUID-788595BD-EB57-4506-BAE0-9733692C6091"></a></span> <em class="strong">Core classes</em>—these provide some general services such as the generic class <em class="strong">(CRef)</em> used by the API classes for accessing Softimage internal objects and arrays.
+               </p> 
+            </li>
+            <li> 
+               <p><span class="anchor_wrapper"><a name="GUID-F36932CF-D636-470F-9BFD-4DAE71DB8F4F"></a></span> <em class="strong">Math classes</em>—these provide access to Softimage math library elements such as vector, matrix, transformation,
+                  rotation, and quaternion. Math classes should not be treated as API class objects
+                  because they aren't represented with reference objects and they don't need an CRef
+                  object at creation time, so you can create them freely.
+               </p> 
+            </li>
+         </ul>
+         <div><span class="anchor_wrapper"><a name="GUID-97713EF3-BD52-4AA0-84C6-03A9163D83F6"></a></span><div class="note-tip"><span class="label">TIP:</span> 
+               <p><span class="anchor_wrapper"><a name="GUID-F94D2D5F-5AEA-4627-8615-D5FD74AA0D9A"></a></span>For a complete list of available classes and their descriptions, see the C++ API Reference.
+               </p> 
+            </div>
+         </div>
+         <div class="section"><span class="anchor_wrapper"><a name="WS85AF1D1770E56E449B28FF310D81BAB0-0004"></a></span> 
+            <h2><span class="anchor_wrapper"><a name="GUID-6FCFCD63-0734-478E-9F4C-8506197E308D"></a></span>Features of the C++ API
+            </h2> 
+            <p><span class="anchor_wrapper"><a name="GUID-DF197BEB-64F5-477C-AB50-53F35E44A65F"></a></span>These are a few of the C++ API features:
+            </p> 
+            <ul>
+               <li> 
+                  <p><span class="anchor_wrapper"><a name="GUID-D9205B03-5B08-46E4-A4D8-DC59052D7708"></a></span> <span class="char_link"><a href="#!/url=./files/cpp_intro-1.htm#WS85AF1D1770E56E449B28FF310D81BAB0-0005">Automatic Object Memory Management</a></span> 
+                  </p> 
+               </li>
+               <li> 
+                  <p><span class="anchor_wrapper"><a name="GUID-FE75B626-7571-4AA7-A656-98B825A11410"></a></span> <span class="char_link"><a href="#!/url=./files/cpp_intro-1.htm#WS85AF1D1770E56E449B28FF310D81BAB0-0006">Backward Compatibility</a></span> 
+                  </p> 
+               </li>
+               <li> 
+                  <p><span class="anchor_wrapper"><a name="GUID-98F32FC7-44AA-4B74-890F-B462B229BD24"></a></span> <span class="char_link"><a href="#!/url=./files/cpp_intro-1.htm#WS85AF1D1770E56E449B28FF310D81BAB0-0007">Error Handling</a></span> 
+                  </p> 
+               </li>
+            </ul> 
+            <div class="section"><span class="anchor_wrapper"><a name="WS85AF1D1770E56E449B28FF310D81BAB0-0005"></a></span> 
+               <h3><span class="anchor_wrapper"><a name="GUID-9E66BD8F-E2C4-457F-B116-D17A74E4452F"></a></span> Automatic Object Memory Management
+               </h3>  
+               <p><span class="anchor_wrapper"><a name="GUID-6658981B-63B4-4136-8B58-A6DCAE551302"></a></span>The C++ API is designed to automatically take care of object lifetime. Classes that
+                  reference objects in the scene (for example, CRef and the API classes) are lightweight
+                  and should be created on the stack as shown in the examples in this chapter. The constructor
+                  of these objects automatically increments a reference count, and the destructor automatically
+                  decrements this count. This is much easier than COM development where object lifetime
+                  needs to be explicitly controlled with calls to <em class="strong">AddRef()</em> and <em class="strong">Release()</em>.
+               </p> 
+               <div><span class="anchor_wrapper"><a name="GUID-5A664127-26F6-4E7A-A778-27A19866C922"></a></span><div class="note-note"><span class="label">NOTE:</span> 
+                     <p><span class="anchor_wrapper"><a name="GUID-961D9D23-3E18-4A7E-B09D-85186D5E7501"></a></span>Care must be taken to avoid keeping a reference to an object that has been deleted
+                        from the scene. For example, if a plug-in maintains a reference object to a sphere
+                        in the heap, and that sphere is removed from the scene (or a different scene is opened),
+                        then the C++ API reference will be pointing to a <em class="mild">zombie</em> object that no longer has any valid existence in the current context of Softimage.
+                     </p> 
+                     <p><span class="anchor_wrapper"><a name="GUID-AF20435A-EFD4-42C8-A858-9285353B9449"></a></span>For normal C++ API plug-ins this is not a problem because the classes are created
+                        in a temporary fashion on the stack, and objects are only removed during the execution
+                        of a plug-in callback if the plug-in deletes the object explicitly (by calling the
+                        <a href="#!/url=./si_cmds/DeleteObj.html">DeleteObj</a> command).
+                     </p> 
+                  </div>
+               </div> 
+            </div> 
+            <div class="section"><span class="anchor_wrapper"><a name="WS85AF1D1770E56E449B28FF310D81BAB0-0006"></a></span> 
+               <h3><span class="anchor_wrapper"><a name="GUID-1ABCED4E-122D-487E-888B-0F0970CA7222"></a></span>Backward Compatibility
+               </h3> 
+               <p><span class="anchor_wrapper"><a name="GUID-BF9133EB-0843-4B09-A64C-26F92B526CDB"></a></span>API classes are wrapper classes with no virtual methods that call internal object
+                  methods. Because the polymorphism happens inside the API, these classes act like a
+                  basic API function set. This extra layer ensures that backward compatibility is preserved
+                  between versions.
+               </p> 
+               <div><span class="anchor_wrapper"><a name="GUID-6148985D-5363-420D-8EF3-EA6E5158018E"></a></span><div class="note-note"><span class="label">NOTE:</span> 
+                     <p><span class="anchor_wrapper"><a name="GUID-DEFC1C33-0AEA-48BE-A674-7DD28589BE39"></a></span>If you are having any problems with .so files that will not load in Softimage we recommend
+                        that you look for unresolved symbols after running the following:
+                     </p> <span class="code" translate="no">ldd -r filename.so</span> 
+                     <p><span class="anchor_wrapper"><a name="GUID-3106F228-66FE-4146-B200-1AD69C4869B4"></a></span>Warnings about <em class="strong">mainwin_init</em> not resolved could be ignored but other errors are a sign that the .so file was compiled
+                        with an older version of Softimage. If you attempt to execute a custom command inside
+                        Softimage that is implemented in an old .so file, you will see a descriptive error
+                        message.
+                     </p> 
+                  </div>
+               </div> 
+               <div><span class="anchor_wrapper"><a name="GUID-C385AEF0-D736-4B9F-B735-605A58169582"></a></span><div class="note-important"><span class="label">IMPORTANT:</span> 
+                     <p><span class="anchor_wrapper"><a name="GUID-F52DB5E2-605A-4217-8B85-9973F67062B9"></a></span>Some of the custom ICE node classes may break backwards compatibilty as of Softimage
+                        2010. For more information, see Backwards Compatibility in the C++ API.
+                     </p> 
+                  </div>
+               </div> 
+            </div> 
+            <div class="section"><span class="anchor_wrapper"><a name="WS85AF1D1770E56E449B28FF310D81BAB0-0007"></a></span> 
+               <h3><span class="anchor_wrapper"><a name="GUID-FE54A3F7-B4B7-40C8-8564-BAD640B379DF"></a></span> Error Handling
+               </h3>  
+               <p><span class="anchor_wrapper"><a name="GUID-AFAF6FC9-879C-43A5-91CD-E6F85B878764"></a></span>The C++ API uses the <a href="#!/url=./si_cpp/classXSI_1_1CStatus.html">CStatus</a> class with error handling. The CStatus class encapsulates status data types (Fail,
+                  Invalid Argument, Out of Memory, Access Denied, etc.) and allows you to query, set
+                  the error code and print the extended error description.
+               </p> 
+            </div> 
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

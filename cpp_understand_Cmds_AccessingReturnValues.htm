@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-DC7399A2-5875-4EA0-A4DA-CD9D4CB56B02" />
+      <meta name="indexterm" content="Getting Multiple Return Values from a Command" />
+      <meta name="topic-type" content="concept" />
+      <title>Accessing Return Values</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-DC7399A2-5875-4EA0-A4DA-CD9D4CB56B02"></a></span><div class="head">
+            <h1>Accessing Return Values</h1>
+         </div>
+         <div class="bodyProcess">
+            <p><span class="anchor_wrapper"><a name="GUID-C12F0474-FCE4-45FC-BB0A-69DD42A71B6F"></a></span>To get at the value returned from a command, you convert it from the returned . Ror
+               example, the <a href="#!/url=./si_cmds/AddImageSource.html">AddImageSource</a> command returns a <a href="#!/url=./si_cpp/class_x_s_i_1_1_source.html">Source</a> object representing the new image source:
+            </p>
+            <div class="codeBlock"><pre class="prettyprint">
+Application app;
+CValue retVal;CValueArray inArgs(2);
+inArgs[0]= CValue();// default: prompts user for location
+inArgs[1]= L"MyNewImgSrc";
+app.ExecuteCommand( L"AddImageSource", inArgs, retVal );
+
+// The new image source can be extracted from the returned CValue 
+Source sph( retVal );
+
+app.LogMessage( sph.GetFullName() );
+
+/* The following is logged to history:
+//INFO : Sources.MyNewImgSrc
+*/
+</pre></div>
+            <div class="section"><span class="anchor_wrapper"><a name="WS7902B6CCE0739F4D8C2836B524C1EB2F-001F"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-DD85C072-D998-468E-96E1-37A1D93A435B"></a></span> Getting Multiple Return Values from a Command
+               </h2>  
+               <p><span class="anchor_wrapper"><a name="GUID-5B3EB4E3-74E5-41AC-A378-B3EC71DA9447"></a></span>If the command returns a collection you can convert it to a <a href="#!/url=./si_cpp/class_x_s_i_1_1_c_value_array.html">CValueArray</a> and then cast each member to its proper class. This example demonstrates how to apply
+                  an orientation constraint to two objects using the <a href="#!/url=./si_cmds/SIApplyCns.html">SIApplyCns</a> command which then returns a constraint collection containing the two new constraints:
+               </p> 
+               <div class="codeBlock"><pre class="prettyprint">
+Application app;
+Model root = app.GetActiveSceneRoot();
+
+// Create a cone and 2 cubes
+X3DObject cone; root.AddGeometry( L"Cone", L"MeshSurface", L"MyCone", cone );
+X3DObject cube1; root.AddGeometry( L"Cube", L"MeshSurface", L"MyCube1", cube1 );
+X3DObject cube2; root.AddGeometry( L"Cube", L"MeshSurface", L"MyCube2", cube2 );
+
+CValue retVal;
+CValueArray inArgs(4);
+inArgs[0] = L"Orientation";
+inArgs[1] = cube1.GetFullName() + L"," + cube2.GetFullName();
+inArgs[2] = cone.GetFullName();
+inArgs[3] = CValue(); // default: false
+app.ExecuteCommand( L"SIApplyCns", inArgs, retVal );
+
+// The new constraints can be extracted from the returned CValue
+CValueArray cnslist( retVal );
+for ( LONG i=0; i&lt;cnslist.GetCount(); ++i ) {
+	Constraint cns( cnslist[i] );
+	app.LogMessage( cns.GetFullName() );
+}
+
+/* The following is logged to history:
+//INFO : MyCube1.kine.oricns
+//INFO : MyCube2.kine.oricns
+*/
+</pre></div> 
+            </div>
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>

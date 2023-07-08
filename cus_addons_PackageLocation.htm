@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../scripts/prettify.js"></script><script src="../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="product" content="SI" />
+      <meta name="release" content="2015" />
+      <meta name="book" content="Developer" />
+      <meta name="created" content="2014-03-13" />
+      <meta name="topicid" content="GUID-97859481-54E1-4CA1-A547-E54D39E661B4" />
+      <meta name="indexterm" content="add-ons: packaging: an entire directory" />
+      <meta name="topic-type" content="concept" />
+      <title>Packaging Add-ons</title><script type="text/javascript" src="../scripts/utils/adsk.redirect.js"></script></head>
+   <body height="100%"><div class="body_content" id="body-content"><script>$(document).ready(function() { yepnope.injectJs("./scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div><span class="anchor_wrapper"><a name="GUID-97859481-54E1-4CA1-A547-E54D39E661B4"></a></span><div class="head">
+            <h1>Packaging Add-ons</h1>
+         </div>
+         <div class="bodyProcess">
+            <p><span class="anchor_wrapper"><a name="GUID-416D963A-7F3C-4237-85BD-A46E8E6F7ED9"></a></span>This section explains how to create an .xsiaddon file from an <span class="char_link"><a href="#!/url=./files/cus_addons_AddonDirectories.htm">Add-on directory</a></span> (this is referred to as packaging by location).
+            </p>
+            <p><span class="anchor_wrapper"><a name="GUID-0267AA8C-04C2-4457-9795-41CC7DF682D1"></a></span>Before you package an add-on, make sure the add-on directory contains only the files
+               and folders you want to ship:
+            </p>
+            <ul>
+               <li> 
+                  <p><span class="anchor_wrapper"><a name="GUID-7227694F-E6A2-41E2-965A-DD50B2F209FE"></a></span>Delete any temporary files and folders.
+                  </p> 
+               </li>
+               <li> 
+                  <p><span class="anchor_wrapper"><a name="GUID-EF090A9C-1E9B-435A-8D1E-01F576CD0102"></a></span>Compile Release versions of any DLLS (not Debug versions).
+                  </p> 
+               </li>
+            </ul>
+            <p><span class="anchor_wrapper"><a name="GUID-261470AD-46D0-49F7-A8B3-78F3A4F9EA4E"></a></span>Note that you can exclude directories when you create the add-on package. For example,
+               if you keep any C++ source code in a separate folder, you can just exclude the folder
+               from the package.
+            </p>
+            <div class="section"><span class="anchor_wrapper"><a name="WS8AD400B78794354E8F5A74BCE7CD86FD-006B"></a></span> 
+               <h2><span class="anchor_wrapper"><a name="GUID-A90E3848-61A7-4D5C-AF74-DA3B57B14E6D"></a></span> To package an Add-on directory as an .xsiaddon
+               </h2>  <span class="anchor_wrapper"><a name="GUID-A80186FC-F970-44C6-9DA2-62DE565E5081"></a></span><ol type="1" start="1">
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-D11B3F0C-ABB9-4F2F-B8E1-C421781DFABC"></a></span>In the Plug-in Tree, expand the workgroup that contains the Add-on directory, right-click
+                        an add-on, and choose <span class="MenuCascade" id="GUID-7DBD2B66-604C-4305-9725-886C5B296E47">Package Add-on</span>.
+                     </p> 
+                     <p><span class="anchor_wrapper"><a name="GUID-3E1035FF-28BD-4166-8ED9-5E62101C5D41"></a></span>The <span class="MenuCascade" id="GUID-E0459901-364F-4E62-8147-E3CB800FFD18">Package Location Options</span> dialog box appears, with the <span class="MenuCascade" id="GUID-999A2A5A-8049-46C7-9911-7C86CEF3E23A">Source</span> folder set to the root folder of the add-on you right-clicked.
+                     </p> 
+                     <p><span class="anchor_wrapper"><a name="GUID-0941280A-0D5F-45F5-8BE9-180E559C6E5A"></a></span>You can also open the <span class="MenuCascade" id="GUID-BC54467E-1D3A-460F-89CD-92EF8D13EFAF">Package Location Options</span> dialog box by choosing <span class="MenuCascade" id="GUID-D6F291A3-3B64-4D49-95F8-BA9091F6B255">File</span><img src="../images/ac.menuaro.gif" /><span class="MenuCascade" id="GUID-6929081F-7140-4E9D-ACDD-AA9F77742EAD">Add-On</span><img src="../images/ac.menuaro.gif" /><span class="MenuCascade" id="GUID-9B6ACCB9-973A-43DF-AC03-766AA150F7FB">Package Location</span> in the main Softimage menu bar. If you do this, the default <span class="MenuCascade" id="GUID-8DB122BC-57D4-46A5-AAC8-4A17ABB89ACC">Source</span> folder is the Addons folder in your User location.
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-617EEA46-E092-429E-A3D9-E4EF876D962E"></a></span>If the Add-on directory contains folders you don't want to include in the .xsiaddon
+                        file, type the names of the folders in the <span class="MenuCascade" id="GUID-41FCBF3D-9515-48F5-BD0B-256A78E8AAD9">Directories to Exclude</span> box. Use semi-colons (;) to separate folder names.
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-7299E3F2-FFCD-4723-A608-358B258747D4"></a></span>By default, the .xsiaddon file is created in the Addons folder of the workgroup. If
+                        you want to create the file in a different folder, click <span class="MenuCascade" id="GUID-618F2402-A96D-49E2-B1FC-AD3509EAD0EE"> <img src="../images/GUID-9C395550-4D3B-45D0-BA13-1273A20DD935-low.png" /> </span> beside the <span class="MenuCascade" id="GUID-052E49A4-8530-43F4-AF0C-93EB0EB75D04">Destination</span> box and locate the folder.
+                     </p> 
+                     <p><span class="anchor_wrapper"><a name="GUID-148E4C92-10A5-4FB5-877D-763FE156AEC6"></a></span>If you want to change the default name of the .xsiaddon file (for example, you may
+                        want to include a version number in the file name), type the name in the <span class="MenuCascade" id="GUID-A3E48E4B-9D85-437F-B63E-8E50018C9DE3">Destination</span> box.
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-0C648C9E-7071-442B-8BE2-CA36340E2077"></a></span>Under <em class="strong">Author</em>, fill in any contact information you want to include with the add-on. This information
+                        will be displayed on the <span class="MenuCascade" id="GUID-6E0A9DC8-2D5B-4894-81F2-E860B5CC970B">add-ons</span> tab in XSI Local.
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-9C668438-D185-4842-AA04-352A7772EAFB"></a></span>In the <span class="MenuCascade" id="GUID-B256A54E-A496-471C-A09A-A882EFBF25F4">Description</span> box, type a brief description for the add-on. This description will be displayed
+                        on the add-ons tab in XSI Local.
+                     </p> 
+                  </li>
+                  <li> 
+                     <p><span class="anchor_wrapper"><a name="GUID-7948BF4B-5B89-4C9B-805E-128C7915E941"></a></span>Click <span class="MenuCascade" id="GUID-818A208D-5200-4ED3-9B0B-E2902D0897BB">OK</span> to create the .xsiaddon file.
+                     </p> 
+                  </li>
+               </ol> 
+            </div>
+         </div>
+         <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /><p class="footer-license-block"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width: 0;" src="../images/ccLink.png" /></a>&nbsp;<em>Except where otherwise noted, this work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. Please see the <a href="http://autodesk.com/creativecommons" target="_blank">Autodesk Creative Commons FAQ</a> for more information.</em></p><br /></div>
+   </div></body>
+</html>
