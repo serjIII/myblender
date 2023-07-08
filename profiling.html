@@ -1,0 +1,2720 @@
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Analysis of Stylesheet Execution Time</title>
+   </head>
+   <body>
+      <h1>Analysis of Stylesheet Execution Time</h1>
+      <p>Total time: 60846.974 milliseconds</p>
+      <h2>Time spent in each template or function:</h2>
+      <p>The table below is ordered by the total net time spent in the template or   function.
+         Gross time means the time including called templates and functions;  net time means
+         time excluding time spent in called templates and functions.
+      </p>
+      <table border="border" cellpadding="10">
+         <thead>
+            <tr>
+               <th>file</th>
+               <th>line</th>
+               <th>instruction</th>
+               <th>count</th>
+               <th>average time (gross)</th>
+               <th>total time (gross)</th>
+               <th>average time (net)</th>
+               <th>total time (net)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>89</td>
+               <td>template createTocPageNumbers</td>
+               <td align="right">517</td>
+               <td align="right">23.302</td>
+               <td align="right">12047.279</td>
+               <td align="right">23.302</td>
+               <td align="right">12047.279</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>17</td>
+               <td>template processOnNewPage</td>
+               <td align="right">517</td>
+               <td align="right">205.615</td>
+               <td align="right">106303.121</td>
+               <td align="right">14.399</td>
+               <td align="right">7444.031</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>71</td>
+               <td>template insertVariable</td>
+               <td align="right">3678</td>
+               <td align="right">1.082</td>
+               <td align="right">3978.613</td>
+               <td align="right">0.745</td>
+               <td align="right">2738.703</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>38</td>
+               <td>template @* | node()</td>
+               <td align="right">96891</td>
+               <td align="right">0.105</td>
+               <td align="right">10134.252</td>
+               <td align="right">0.021</td>
+               <td align="right">2007.776</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>9</td>
+               <td>template *[contains(@class, ' topic/p ')]</td>
+               <td align="right">5572</td>
+               <td align="right">0.839</td>
+               <td align="right">4673.608</td>
+               <td align="right">0.290</td>
+               <td align="right">1616.553</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>51</td>
+               <td>template text()</td>
+               <td align="right">46865</td>
+               <td align="right">0.030</td>
+               <td align="right">1402.385</td>
+               <td align="right">0.030</td>
+               <td align="right">1402.385</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>442</td>
+               <td>template insertALinkAnchor</td>
+               <td align="right">14076</td>
+               <td align="right">0.091</td>
+               <td align="right">1282.350</td>
+               <td align="right">0.091</td>
+               <td align="right">1282.350</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>569</td>
+               <td>template *[contains(@class, ' topic/section ')]</td>
+               <td align="right">1163</td>
+               <td align="right">11.405</td>
+               <td align="right">13264.593</td>
+               <td align="right">1.059</td>
+               <td align="right">1231.753</td>
+            </tr>
+            <tr>
+               <td>"*l/hlp-root.xsl"</td>
+               <td>164</td>
+               <td>template createBookData</td>
+               <td align="right">1</td>
+               <td align="right">1908.388</td>
+               <td align="right">1908.388</td>
+               <td align="right">1075.777</td>
+               <td align="right">1075.777</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>15</td>
+               <td>function ia-func:loadResourceElements</td>
+               <td align="right">1</td>
+               <td align="right">2027.107</td>
+               <td align="right">2027.107</td>
+               <td align="right">1025.531</td>
+               <td align="right">1025.531</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>84</td>
+               <td>function ia-func:getBSTopicByGid</td>
+               <td align="right">3709</td>
+               <td align="right">0.267</td>
+               <td align="right">990.055</td>
+               <td align="right">0.265</td>
+               <td align="right">982.908</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>52</td>
+               <td>template *[contains(@class, ' topic/ul ')]/*[contains(@class, ' topic/li ')]</td>
+               <td align="right">2391</td>
+               <td align="right">1.530</td>
+               <td align="right">3659.156</td>
+               <td align="right">0.394</td>
+               <td align="right">942.058</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>102</td>
+               <td>template getTopicInfo</td>
+               <td align="right">3192</td>
+               <td align="right">0.608</td>
+               <td align="right">1941.278</td>
+               <td align="right">0.288</td>
+               <td align="right">917.833</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>729</td>
+               <td>template ia-index:index.entry</td>
+               <td align="right">2432</td>
+               <td align="right">0.482</td>
+               <td align="right">1172.848</td>
+               <td align="right">0.341</td>
+               <td align="right">828.209</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>393</td>
+               <td>function ia-func:transformVariableFormat</td>
+               <td align="right">3677</td>
+               <td align="right">0.220</td>
+               <td align="right">810.242</td>
+               <td align="right">0.220</td>
+               <td align="right">810.242</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>454</td>
+               <td>template applyAlignAttrs</td>
+               <td align="right">3467</td>
+               <td align="right">0.280</td>
+               <td align="right">969.849</td>
+               <td align="right">0.217</td>
+               <td align="right">753.928</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>230</td>
+               <td>template ia-search:s.d</td>
+               <td align="right">61479</td>
+               <td align="right">0.012</td>
+               <td align="right">735.696</td>
+               <td align="right">0.012</td>
+               <td align="right">735.696</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>91</td>
+               <td>template ia-index:index.entry</td>
+               <td align="right">3192</td>
+               <td align="right">0.821</td>
+               <td align="right">2621.308</td>
+               <td align="right">0.213</td>
+               <td align="right">680.030</td>
+            </tr>
+            <tr>
+               <td>"*html-utils.xsl"</td>
+               <td>163</td>
+               <td>template __insertScripts</td>
+               <td align="right">517</td>
+               <td align="right">1.209</td>
+               <td align="right">624.912</td>
+               <td align="right">1.209</td>
+               <td align="right">624.912</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>147</td>
+               <td>template *[contains(@class, ' topic/tbody ')]/                          *[contains(@class,
+                  ' topic/row ')]/                          *[contains(@class, ' topic/entry ')]
+               </td>
+               <td align="right">3053</td>
+               <td align="right">1.359</td>
+               <td align="right">4148.661</td>
+               <td align="right">0.201</td>
+               <td align="right">613.746</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>207</td>
+               <td>function ia-func:cutParentDirRelativeCommands</td>
+               <td align="right">2097</td>
+               <td align="right">0.350</td>
+               <td align="right">733.035</td>
+               <td align="right">0.290</td>
+               <td align="right">607.400</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>166</td>
+               <td>template insertDoctypeDeclaration</td>
+               <td align="right">518</td>
+               <td align="right">1.071</td>
+               <td align="right">554.954</td>
+               <td align="right">1.071</td>
+               <td align="right">554.954</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>20</td>
+               <td>function ia-func:getTopicType</td>
+               <td align="right">1551</td>
+               <td align="right">0.338</td>
+               <td align="right">524.985</td>
+               <td align="right">0.338</td>
+               <td align="right">524.985</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>141</td>
+               <td>template ia-index:index.entry[not(ia-index:index.entry)]</td>
+               <td align="right">1644</td>
+               <td align="right">0.385</td>
+               <td align="right">633.123</td>
+               <td align="right">0.313</td>
+               <td align="right">514.198</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>133</td>
+               <td>template *[contains(@class, ' process/processbody ')]</td>
+               <td align="right">394</td>
+               <td align="right">30.074</td>
+               <td align="right">11849.235</td>
+               <td align="right">1.275</td>
+               <td align="right">502.412</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>188</td>
+               <td>template *[contains(@class, ' topic/tbody ')]//*[contains(@class, ' topic/entry ')]/*[contains(@class,
+                  ' topic/p ')]
+               </td>
+               <td align="right">2910</td>
+               <td align="right">0.420</td>
+               <td align="right">1222.463</td>
+               <td align="right">0.173</td>
+               <td align="right">502.178</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>104</td>
+               <td>function ia-func:findAllXrefAnchorsById</td>
+               <td align="right">1051</td>
+               <td align="right">0.464</td>
+               <td align="right">487.390</td>
+               <td align="right">0.464</td>
+               <td align="right">487.390</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>72</td>
+               <td>template writeHtmlPageContent</td>
+               <td align="right">517</td>
+               <td align="right">190.551</td>
+               <td align="right">98515.008</td>
+               <td align="right">0.909</td>
+               <td align="right">469.943</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>219</td>
+               <td>template ia-search:s.e</td>
+               <td align="right">11779</td>
+               <td align="right">0.102</td>
+               <td align="right">1202.517</td>
+               <td align="right">0.040</td>
+               <td align="right">466.820</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>90</td>
+               <td>template *[contains(@class, ' topic/tbody ')]/*[contains(@class, ' topic/row ')]</td>
+               <td align="right">1124</td>
+               <td align="right">4.332</td>
+               <td align="right">4869.129</td>
+               <td align="right">0.387</td>
+               <td align="right">435.107</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>118</td>
+               <td>template __processVariableBody</td>
+               <td align="right">3677</td>
+               <td align="right">0.106</td>
+               <td align="right">388.058</td>
+               <td align="right">0.106</td>
+               <td align="right">388.058</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>72</td>
+               <td>function ia-func:fetchValueableText</td>
+               <td align="right">2391</td>
+               <td align="right">0.156</td>
+               <td align="right">372.726</td>
+               <td align="right">0.156</td>
+               <td align="right">372.726</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>169</td>
+               <td>template createSearchEntries</td>
+               <td align="right">1</td>
+               <td align="right">2301.322</td>
+               <td align="right">2301.322</td>
+               <td align="right">360.734</td>
+               <td align="right">360.734</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>14</td>
+               <td>template *[contains(@class, ' topic/ul ')]</td>
+               <td align="right">639</td>
+               <td align="right">7.896</td>
+               <td align="right">5045.666</td>
+               <td align="right">0.559</td>
+               <td align="right">357.255</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>637</td>
+               <td>template countTotalColumnsWidth</td>
+               <td align="right">1234</td>
+               <td align="right">0.556</td>
+               <td align="right">686.309</td>
+               <td align="right">0.287</td>
+               <td align="right">353.762</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>160</td>
+               <td>template writeToDocument</td>
+               <td align="right">14</td>
+               <td align="right">26.301</td>
+               <td align="right">368.214</td>
+               <td align="right">24.606</td>
+               <td align="right">344.490</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>32</td>
+               <td>template *[contains(@class, ' topic/ul ')]/*[contains(@class, ' topic/li ')]</td>
+               <td align="right">2391</td>
+               <td align="right">1.941</td>
+               <td align="right">4641.128</td>
+               <td align="right">0.140</td>
+               <td align="right">334.239</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>312</td>
+               <td>template insertFooterBlock</td>
+               <td align="right">517</td>
+               <td align="right">7.978</td>
+               <td align="right">4124.847</td>
+               <td align="right">0.607</td>
+               <td align="right">313.869</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>525</td>
+               <td>template generate.col</td>
+               <td align="right">849</td>
+               <td align="right">1.686</td>
+               <td align="right">1431.372</td>
+               <td align="right">0.346</td>
+               <td align="right">294.069</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>119</td>
+               <td>template ia-index:index.entry</td>
+               <td align="right">1772</td>
+               <td align="right">0.189</td>
+               <td align="right">335.669</td>
+               <td align="right">0.165</td>
+               <td align="right">291.877</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>30</td>
+               <td>template __insertMetadataPublicationLevelInformation</td>
+               <td align="right">517</td>
+               <td align="right">1.163</td>
+               <td align="right">601.083</td>
+               <td align="right">0.564</td>
+               <td align="right">291.660</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>190</td>
+               <td>template ia-search:s.e</td>
+               <td align="right">11779</td>
+               <td align="right">0.025</td>
+               <td align="right">290.086</td>
+               <td align="right">0.025</td>
+               <td align="right">290.086</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>173</td>
+               <td>function ia-func:preserveTrailingParentDirRelativeCommands</td>
+               <td align="right">1910</td>
+               <td align="right">0.498</td>
+               <td align="right">951.980</td>
+               <td align="right">0.150</td>
+               <td align="right">286.261</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>340</td>
+               <td>function ia-func:insertMeta</td>
+               <td align="right">2585</td>
+               <td align="right">0.109</td>
+               <td align="right">281.653</td>
+               <td align="right">0.109</td>
+               <td align="right">281.653</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>255</td>
+               <td>template createReferencedArtFileList</td>
+               <td align="right">1</td>
+               <td align="right">655.952</td>
+               <td align="right">655.952</td>
+               <td align="right">271.223</td>
+               <td align="right">271.223</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>141</td>
+               <td>template __insertMetadataContextId</td>
+               <td align="right">517</td>
+               <td align="right">0.492</td>
+               <td align="right">254.333</td>
+               <td align="right">0.492</td>
+               <td align="right">254.333</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>61</td>
+               <td>function ia-func:insertVariable</td>
+               <td align="right">2095</td>
+               <td align="right">1.130</td>
+               <td align="right">2367.547</td>
+               <td align="right">0.118</td>
+               <td align="right">247.432</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>109</td>
+               <td>template *[contains(@class, ' topic/ol ')]/*[contains(@class, ' topic/li ')]</td>
+               <td align="right">435</td>
+               <td align="right">2.425</td>
+               <td align="right">1055.037</td>
+               <td align="right">0.524</td>
+               <td align="right">228.099</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>420</td>
+               <td>template *[contains(@class, ' topic/note ')]</td>
+               <td align="right">456</td>
+               <td align="right">2.611</td>
+               <td align="right">1190.488</td>
+               <td align="right">0.489</td>
+               <td align="right">223.145</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>341</td>
+               <td>template countEntryNumber</td>
+               <td align="right">3467</td>
+               <td align="right">0.062</td>
+               <td align="right">215.921</td>
+               <td align="right">0.062</td>
+               <td align="right">215.921</td>
+            </tr>
+            <tr>
+               <td>"*html-utils.xsl"</td>
+               <td>139</td>
+               <td>template __insertStyles</td>
+               <td align="right">517</td>
+               <td align="right">0.403</td>
+               <td align="right">208.216</td>
+               <td align="right">0.403</td>
+               <td align="right">208.216</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>105</td>
+               <td>function ia-func:getCurrentTableFormat</td>
+               <td align="right">1465</td>
+               <td align="right">0.131</td>
+               <td align="right">191.428</td>
+               <td align="right">0.131</td>
+               <td align="right">191.428</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>19</td>
+               <td>template tgroup *[contains(@class, ' topic/tgroup ')]</td>
+               <td align="right">179</td>
+               <td align="right">36.752</td>
+               <td align="right">6578.691</td>
+               <td align="right">1.014</td>
+               <td align="right">181.549</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>116</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">1639</td>
+               <td align="right">0.850</td>
+               <td align="right">1393.881</td>
+               <td align="right">0.110</td>
+               <td align="right">180.483</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>64</td>
+               <td>template *[contains(@class, ' topic/tbody ')]</td>
+               <td align="right">179</td>
+               <td align="right">28.184</td>
+               <td align="right">5044.938</td>
+               <td align="right">0.982</td>
+               <td align="right">175.809</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>172</td>
+               <td>template __insertMetadataCmdname</td>
+               <td align="right">517</td>
+               <td align="right">0.339</td>
+               <td align="right">175.177</td>
+               <td align="right">0.339</td>
+               <td align="right">175.177</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>55</td>
+               <td>template __insertMetadataAllKeywords</td>
+               <td align="right">517</td>
+               <td align="right">0.324</td>
+               <td align="right">167.508</td>
+               <td align="right">0.324</td>
+               <td align="right">167.508</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>531</td>
+               <td>template insertExternalUrlLink</td>
+               <td align="right">3319</td>
+               <td align="right">0.095</td>
+               <td align="right">316.807</td>
+               <td align="right">0.049</td>
+               <td align="right">161.915</td>
+            </tr>
+            <tr>
+               <td>"*opic-basic.xsl"</td>
+               <td>79</td>
+               <td>template *[contains(@class, ' topic/section ')]/*[contains(@class, ' topic/title ')]</td>
+               <td align="right">1158</td>
+               <td align="right">0.290</td>
+               <td align="right">335.428</td>
+               <td align="right">0.135</td>
+               <td align="right">156.149</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>214</td>
+               <td>template formatText</td>
+               <td align="right">2047</td>
+               <td align="right">0.075</td>
+               <td align="right">152.632</td>
+               <td align="right">0.075</td>
+               <td align="right">152.632</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>11</td>
+               <td>template createResourceFileList</td>
+               <td align="right">1</td>
+               <td align="right">292.113</td>
+               <td align="right">292.113</td>
+               <td align="right">149.907</td>
+               <td align="right">149.907</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>209</td>
+               <td>template createLegendBlock</td>
+               <td align="right">517</td>
+               <td align="right">0.547</td>
+               <td align="right">282.652</td>
+               <td align="right">0.288</td>
+               <td align="right">148.936</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>52</td>
+               <td>template topic</td>
+               <td align="right">517</td>
+               <td align="right">73.682</td>
+               <td align="right">38093.563</td>
+               <td align="right">0.288</td>
+               <td align="right">148.698</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>75</td>
+               <td>template __insertMetadataRelatedProduct</td>
+               <td align="right">517</td>
+               <td align="right">0.286</td>
+               <td align="right">147.676</td>
+               <td align="right">0.286</td>
+               <td align="right">147.676</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>173</td>
+               <td>template ia-index:index.entry[ia-index:index.entry]</td>
+               <td align="right">403</td>
+               <td align="right">1.849</td>
+               <td align="right">745.028</td>
+               <td align="right">0.362</td>
+               <td align="right">145.733</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>137</td>
+               <td>template processTableEntryAttributes</td>
+               <td align="right">3467</td>
+               <td align="right">0.337</td>
+               <td align="right">1168.764</td>
+               <td align="right">0.041</td>
+               <td align="right">142.546</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>165</td>
+               <td>function ia-func:getResourcePathById</td>
+               <td align="right">1137</td>
+               <td align="right">0.141</td>
+               <td align="right">160.806</td>
+               <td align="right">0.125</td>
+               <td align="right">141.898</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>469</td>
+               <td>function ia-func:getParameter</td>
+               <td align="right">42</td>
+               <td align="right">4.380</td>
+               <td align="right">183.955</td>
+               <td align="right">3.308</td>
+               <td align="right">138.952</td>
+            </tr>
+            <tr>
+               <td>"*opic-basic.xsl"</td>
+               <td>167</td>
+               <td>template *[contains(@class, ' topic/body ')]</td>
+               <td align="right">123</td>
+               <td align="right">42.040</td>
+               <td align="right">5170.921</td>
+               <td align="right">1.127</td>
+               <td align="right">138.616</td>
+            </tr>
+            <tr>
+               <td>"*-resources.xsl"</td>
+               <td>73</td>
+               <td>function ia-func:isCopyableResource</td>
+               <td align="right">269</td>
+               <td align="right">0.508</td>
+               <td align="right">136.569</td>
+               <td align="right">0.508</td>
+               <td align="right">136.569</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>119</td>
+               <td>function ia-func:stripLocaleNameFromResourcePath</td>
+               <td align="right">356</td>
+               <td align="right">1.681</td>
+               <td align="right">598.275</td>
+               <td align="right">0.382</td>
+               <td align="right">135.925</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>622</td>
+               <td>template calculateTotalColumnWidth</td>
+               <td align="right">436</td>
+               <td align="right">1.112</td>
+               <td align="right">484.619</td>
+               <td align="right">0.300</td>
+               <td align="right">130.857</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>115</td>
+               <td>template __insertMetadataIndexEntry</td>
+               <td align="right">517</td>
+               <td align="right">0.899</td>
+               <td align="right">464.984</td>
+               <td align="right">0.250</td>
+               <td align="right">129.314</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>414</td>
+               <td>function ia-func:isListItem</td>
+               <td align="right">7002</td>
+               <td align="right">0.018</td>
+               <td align="right">128.816</td>
+               <td align="right">0.018</td>
+               <td align="right">128.816</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>97</td>
+               <td>template insertTableBodyRowAttributes</td>
+               <td align="right">1124</td>
+               <td align="right">0.254</td>
+               <td align="right">285.361</td>
+               <td align="right">0.112</td>
+               <td align="right">126.242</td>
+            </tr>
+            <tr>
+               <td>"*m-tooltips.xsl"</td>
+               <td>17</td>
+               <td>template createTooltipSection</td>
+               <td align="right">1</td>
+               <td align="right">121.084</td>
+               <td align="right">121.084</td>
+               <td align="right">121.084</td>
+               <td align="right">121.084</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>353</td>
+               <td>function ia-func:constructXrefLink</td>
+               <td align="right">1051</td>
+               <td align="right">0.818</td>
+               <td align="right">860.243</td>
+               <td align="right">0.115</td>
+               <td align="right">120.486</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>8</td>
+               <td>template logMessage</td>
+               <td align="right">615</td>
+               <td align="right">0.191</td>
+               <td align="right">117.541</td>
+               <td align="right">0.191</td>
+               <td align="right">117.541</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>38</td>
+               <td>template createLink</td>
+               <td align="right">1051</td>
+               <td align="right">1.058</td>
+               <td align="right">1112.482</td>
+               <td align="right">0.108</td>
+               <td align="right">114.018</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>41</td>
+               <td>template processConceptTopic</td>
+               <td align="right">517</td>
+               <td align="right">205.826</td>
+               <td align="right">106412.091</td>
+               <td align="right">0.211</td>
+               <td align="right">108.970</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>16</td>
+               <td>template *[contains(@class, ' pr-d/codeblock ')]</td>
+               <td align="right">900</td>
+               <td align="right">0.319</td>
+               <td align="right">286.663</td>
+               <td align="right">0.114</td>
+               <td align="right">102.592</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>61</td>
+               <td>function ia-func:getSortString</td>
+               <td align="right">2391</td>
+               <td align="right">0.199</td>
+               <td align="right">474.896</td>
+               <td align="right">0.043</td>
+               <td align="right">102.170</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>195</td>
+               <td>template getHtmlXrefTitle</td>
+               <td align="right">1051</td>
+               <td align="right">0.098</td>
+               <td align="right">103.076</td>
+               <td align="right">0.097</td>
+               <td align="right">101.537</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>222</td>
+               <td>function ia-func:removeRelativeCommands</td>
+               <td align="right">1639</td>
+               <td align="right">0.651</td>
+               <td align="right">1067.553</td>
+               <td align="right">0.061</td>
+               <td align="right">99.581</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>10</td>
+               <td>template *[contains(@class, ' pr-d/codeph ')]</td>
+               <td align="right">1832</td>
+               <td align="right">0.123</td>
+               <td align="right">225.098</td>
+               <td align="right">0.054</td>
+               <td align="right">98.902</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>201</td>
+               <td>template ia-search:s.e</td>
+               <td align="right">12</td>
+               <td align="right">135.561</td>
+               <td align="right">1626.731</td>
+               <td align="right">7.490</td>
+               <td align="right">89.882</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>177</td>
+               <td>template insertNbspIfEmpty</td>
+               <td align="right">3467</td>
+               <td align="right">0.026</td>
+               <td align="right">88.997</td>
+               <td align="right">0.026</td>
+               <td align="right">88.997</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>97</td>
+               <td>function ia-func:getBaseDir</td>
+               <td align="right">357</td>
+               <td align="right">0.384</td>
+               <td align="right">137.029</td>
+               <td align="right">0.248</td>
+               <td align="right">88.583</td>
+            </tr>
+            <tr>
+               <td>"*-resources.xsl"</td>
+               <td>42</td>
+               <td>template includeResourceBySwitch</td>
+               <td align="right">289</td>
+               <td align="right">0.294</td>
+               <td align="right">84.881</td>
+               <td align="right">0.292</td>
+               <td align="right">84.531</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>294</td>
+               <td>function ia-func:getXrefTargetId</td>
+               <td align="right">1051</td>
+               <td align="right">0.099</td>
+               <td align="right">103.885</td>
+               <td align="right">0.077</td>
+               <td align="right">80.604</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>127</td>
+               <td>template *[contains(@class, ' topic/thead ')]/                          *[contains(@class,
+                  ' topic/row ')]/                          *[contains(@class, ' topic/entry ')]
+               </td>
+               <td align="right">414</td>
+               <td align="right">0.912</td>
+               <td align="right">377.642</td>
+               <td align="right">0.179</td>
+               <td align="right">74.266</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>617</td>
+               <td>function ia-func:getMapTopicref</td>
+               <td align="right">517</td>
+               <td align="right">0.247</td>
+               <td align="right">127.449</td>
+               <td align="right">0.141</td>
+               <td align="right">72.899</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>421</td>
+               <td>function ia-func:prepareJSString</td>
+               <td align="right">698</td>
+               <td align="right">0.099</td>
+               <td align="right">69.169</td>
+               <td align="right">0.099</td>
+               <td align="right">69.169</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>659</td>
+               <td>template insertMenuCascade</td>
+               <td align="right">844</td>
+               <td align="right">0.170</td>
+               <td align="right">143.171</td>
+               <td align="right">0.082</td>
+               <td align="right">68.900</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>147</td>
+               <td>function ia-func:removeDuplicateSlashes</td>
+               <td align="right">1860</td>
+               <td align="right">0.071</td>
+               <td align="right">131.894</td>
+               <td align="right">0.037</td>
+               <td align="right">68.572</td>
+            </tr>
+            <tr>
+               <td>"*l/htm-html.xsl"</td>
+               <td>446</td>
+               <td>template insertFootnotes</td>
+               <td align="right">517</td>
+               <td align="right">0.126</td>
+               <td align="right">65.218</td>
+               <td align="right">0.126</td>
+               <td align="right">65.218</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>89</td>
+               <td>function ia-func:getXrefTargetAnchor</td>
+               <td align="right">1051</td>
+               <td align="right">0.535</td>
+               <td align="right">561.789</td>
+               <td align="right">0.061</td>
+               <td align="right">64.453</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>81</td>
+               <td>function ia-func:getBSTopicByGid</td>
+               <td align="right">3709</td>
+               <td align="right">0.284</td>
+               <td align="right">1052.139</td>
+               <td align="right">0.017</td>
+               <td align="right">62.083</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>74</td>
+               <td>function ia-func:expandResourceFileList</td>
+               <td align="right">17</td>
+               <td align="right">24.114</td>
+               <td align="right">409.940</td>
+               <td align="right">3.647</td>
+               <td align="right">62.004</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>58</td>
+               <td>template *[contains(@class, ' topic/ol ')]</td>
+               <td align="right">108</td>
+               <td align="right">11.123</td>
+               <td align="right">1201.313</td>
+               <td align="right">0.552</td>
+               <td align="right">59.630</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>9</td>
+               <td>template __insertMetadata</td>
+               <td align="right">517</td>
+               <td align="right">4.118</td>
+               <td align="right">2129.238</td>
+               <td align="right">0.115</td>
+               <td align="right">59.521</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>72</td>
+               <td>template *[contains(@class, ' topic/thead ')]/*[contains(@class, ' topic/row ')]</td>
+               <td align="right">162</td>
+               <td align="right">2.905</td>
+               <td align="right">470.665</td>
+               <td align="right">0.366</td>
+               <td align="right">59.362</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>66</td>
+               <td>function ia-func:getDescendantTopics</td>
+               <td align="right">517</td>
+               <td align="right">0.115</td>
+               <td align="right">59.342</td>
+               <td align="right">0.115</td>
+               <td align="right">59.342</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>410</td>
+               <td>function ia-func:isListItem</td>
+               <td align="right">7002</td>
+               <td align="right">0.026</td>
+               <td align="right">182.642</td>
+               <td align="right">0.008</td>
+               <td align="right">53.826</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>102</td>
+               <td>template __insertMetadataCommand</td>
+               <td align="right">517</td>
+               <td align="right">0.103</td>
+               <td align="right">53.255</td>
+               <td align="right">0.103</td>
+               <td align="right">53.255</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>158</td>
+               <td>template __insertMetadataType</td>
+               <td align="right">517</td>
+               <td align="right">0.096</td>
+               <td align="right">49.651</td>
+               <td align="right">0.096</td>
+               <td align="right">49.651</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>627</td>
+               <td>function ia-func:getTopicrefs</td>
+               <td align="right">517</td>
+               <td align="right">0.094</td>
+               <td align="right">48.852</td>
+               <td align="right">0.094</td>
+               <td align="right">48.852</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>507</td>
+               <td>template generate.colgroup</td>
+               <td align="right">629</td>
+               <td align="right">2.674</td>
+               <td align="right">1681.714</td>
+               <td align="right">0.077</td>
+               <td align="right">48.717</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>408</td>
+               <td>function ia-func:isExternalAnchor</td>
+               <td align="right">1051</td>
+               <td align="right">0.044</td>
+               <td align="right">46.092</td>
+               <td align="right">0.044</td>
+               <td align="right">46.092</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>425</td>
+               <td>template applySpansAttrs</td>
+               <td align="right">3467</td>
+               <td align="right">0.016</td>
+               <td align="right">56.369</td>
+               <td align="right">0.013</td>
+               <td align="right">45.821</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>117</td>
+               <td>function ia-func:getBSTopicByHref</td>
+               <td align="right">517</td>
+               <td align="right">0.088</td>
+               <td align="right">45.580</td>
+               <td align="right">0.088</td>
+               <td align="right">45.580</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>166</td>
+               <td>function ia-func:replaceDuplicateSlashes</td>
+               <td align="right">1860</td>
+               <td align="right">0.024</td>
+               <td align="right">45.062</td>
+               <td align="right">0.024</td>
+               <td align="right">45.062</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>130</td>
+               <td>template ia-index:index.entry</td>
+               <td align="right">1420</td>
+               <td align="right">0.033</td>
+               <td align="right">47.412</td>
+               <td align="right">0.031</td>
+               <td align="right">43.793</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>228</td>
+               <td>function ia-func:stripFilePrefix</td>
+               <td align="right">357</td>
+               <td align="right">0.121</td>
+               <td align="right">43.112</td>
+               <td align="right">0.121</td>
+               <td align="right">43.112</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>187</td>
+               <td>template __insertMetadataOthermeta</td>
+               <td align="right">517</td>
+               <td align="right">0.082</td>
+               <td align="right">42.155</td>
+               <td align="right">0.082</td>
+               <td align="right">42.155</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>572</td>
+               <td>template insertHeader</td>
+               <td align="right">517</td>
+               <td align="right">0.194</td>
+               <td align="right">100.075</td>
+               <td align="right">0.081</td>
+               <td align="right">42.127</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>390</td>
+               <td>function ia-func:transformVariableFormat</td>
+               <td align="right">3677</td>
+               <td align="right">0.232</td>
+               <td align="right">851.853</td>
+               <td align="right">0.011</td>
+               <td align="right">41.611</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>793</td>
+               <td>template insertTopiclistItem</td>
+               <td align="right">508</td>
+               <td align="right">0.082</td>
+               <td align="right">41.472</td>
+               <td align="right">0.082</td>
+               <td align="right">41.472</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>359</td>
+               <td>template insertTopicListFooterBlock</td>
+               <td align="right">517</td>
+               <td align="right">0.499</td>
+               <td align="right">258.102</td>
+               <td align="right">0.080</td>
+               <td align="right">41.185</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>527</td>
+               <td>template *[contains(@class,' topic/xref ')][@scope = 'external'][@format = 'url']</td>
+               <td align="right">3319</td>
+               <td align="right">0.107</td>
+               <td align="right">356.525</td>
+               <td align="right">0.012</td>
+               <td align="right">39.718</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>40</td>
+               <td>template __insertMetadataDescription</td>
+               <td align="right">517</td>
+               <td align="right">0.173</td>
+               <td align="right">89.646</td>
+               <td align="right">0.077</td>
+               <td align="right">39.683</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>677</td>
+               <td>function ia-func:getResourceSet</td>
+               <td align="right">6</td>
+               <td align="right">8.010</td>
+               <td align="right">48.061</td>
+               <td align="right">6.598</td>
+               <td align="right">39.589</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>673</td>
+               <td>template *[contains(@class,' ui-d/uicontrol ')]</td>
+               <td align="right">916</td>
+               <td align="right">0.147</td>
+               <td align="right">134.522</td>
+               <td align="right">0.043</td>
+               <td align="right">39.270</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>9</td>
+               <td>template *[contains(@class, ' topic/table ')]</td>
+               <td align="right">179</td>
+               <td align="right">37.181</td>
+               <td align="right">6655.470</td>
+               <td align="right">0.200</td>
+               <td align="right">35.886</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>63</td>
+               <td>template *[contains(@class, ' topic/ol ')]/*[contains(@class, ' topic/li ')]</td>
+               <td align="right">435</td>
+               <td align="right">2.598</td>
+               <td align="right">1130.057</td>
+               <td align="right">0.078</td>
+               <td align="right">33.907</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>725</td>
+               <td>template text()</td>
+               <td align="right">517</td>
+               <td align="right">0.094</td>
+               <td align="right">48.711</td>
+               <td align="right">0.064</td>
+               <td align="right">33.336</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>487</td>
+               <td>template insertMOTW</td>
+               <td align="right">519</td>
+               <td align="right">0.062</td>
+               <td align="right">31.962</td>
+               <td align="right">0.062</td>
+               <td align="right">31.962</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>511</td>
+               <td>template createBookConfigFile</td>
+               <td align="right">1</td>
+               <td align="right">39.416</td>
+               <td align="right">39.416</td>
+               <td align="right">31.841</td>
+               <td align="right">31.841</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>472</td>
+               <td>template insertExternalLink</td>
+               <td align="right">271</td>
+               <td align="right">0.713</td>
+               <td align="right">193.192</td>
+               <td align="right">0.115</td>
+               <td align="right">31.030</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>10</td>
+               <td>template *[contains(@class, ' topic/topic ')]</td>
+               <td align="right">517</td>
+               <td align="right">206.004</td>
+               <td align="right">106504.044</td>
+               <td align="right">0.060</td>
+               <td align="right">30.789</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>29</td>
+               <td>template *[contains(@class,' topic/xref ')]</td>
+               <td align="right">1051</td>
+               <td align="right">1.086</td>
+               <td align="right">1141.835</td>
+               <td align="right">0.028</td>
+               <td align="right">29.353</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>336</td>
+               <td>function ia-func:insertMeta</td>
+               <td align="right">2585</td>
+               <td align="right">0.120</td>
+               <td align="right">309.423</td>
+               <td align="right">0.011</td>
+               <td align="right">27.770</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>218</td>
+               <td>function ia-func:createHref</td>
+               <td align="right">517</td>
+               <td align="right">0.053</td>
+               <td align="right">27.186</td>
+               <td align="right">0.053</td>
+               <td align="right">27.186</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>389</td>
+               <td>template insertLinkHrefAttribute</td>
+               <td align="right">1051</td>
+               <td align="right">0.025</td>
+               <td align="right">26.339</td>
+               <td align="right">0.025</td>
+               <td align="right">26.339</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>31</td>
+               <td>template processNormalTopic</td>
+               <td align="right">517</td>
+               <td align="right">205.876</td>
+               <td align="right">106437.861</td>
+               <td align="right">0.050</td>
+               <td align="right">25.770</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>699</td>
+               <td>template insertResourcesToHTML</td>
+               <td align="right">2</td>
+               <td align="right">20.784</td>
+               <td align="right">41.568</td>
+               <td align="right">12.875</td>
+               <td align="right">25.750</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>273</td>
+               <td>template insertFooter</td>
+               <td align="right">517</td>
+               <td align="right">8.525</td>
+               <td align="right">4407.641</td>
+               <td align="right">0.048</td>
+               <td align="right">24.691</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>649</td>
+               <td>template insertResourcesToLoader</td>
+               <td align="right">2</td>
+               <td align="right">28.164</td>
+               <td align="right">56.328</td>
+               <td align="right">12.021</td>
+               <td align="right">24.043</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>154</td>
+               <td>template createIndexPage</td>
+               <td align="right">1</td>
+               <td align="right">82.326</td>
+               <td align="right">82.326</td>
+               <td align="right">23.989</td>
+               <td align="right">23.989</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>145</td>
+               <td>function ia-func:getCurrentCETableFormat</td>
+               <td align="right">179</td>
+               <td align="right">0.132</td>
+               <td align="right">23.674</td>
+               <td align="right">0.132</td>
+               <td align="right">23.674</td>
+            </tr>
+            <tr>
+               <td>"*ypographic.xsl"</td>
+               <td>22</td>
+               <td>template *[contains(@class, ' hi-d/b ')]</td>
+               <td align="right">900</td>
+               <td align="right">0.062</td>
+               <td align="right">56.192</td>
+               <td align="right">0.026</td>
+               <td align="right">23.627</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>459</td>
+               <td>template *[contains(@class,' topic/xref ')][@scope = 'external']</td>
+               <td align="right">271</td>
+               <td align="right">0.796</td>
+               <td align="right">215.664</td>
+               <td align="right">0.083</td>
+               <td align="right">22.472</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>193</td>
+               <td>function ia-func:cutCurrentDirRelativeCommands</td>
+               <td align="right">1639</td>
+               <td align="right">0.014</td>
+               <td align="right">22.345</td>
+               <td align="right">0.014</td>
+               <td align="right">22.345</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>20</td>
+               <td>template createContentTree</td>
+               <td align="right">1</td>
+               <td align="right">14299.842</td>
+               <td align="right">14299.842</td>
+               <td align="right">22.338</td>
+               <td align="right">22.338</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>591</td>
+               <td>template createDeviceTypeSpecificResourceLoaderJS</td>
+               <td align="right">1</td>
+               <td align="right">78.026</td>
+               <td align="right">78.026</td>
+               <td align="right">21.656</td>
+               <td align="right">21.656</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>60</td>
+               <td>template *[contains(@class, ' topic/thead ')]</td>
+               <td align="right">162</td>
+               <td align="right">3.036</td>
+               <td align="right">491.830</td>
+               <td align="right">0.131</td>
+               <td align="right">21.164</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>574</td>
+               <td>function ia-func:getUntabbedJavaScript</td>
+               <td align="right">2</td>
+               <td align="right">10.412</td>
+               <td align="right">20.824</td>
+               <td align="right">10.412</td>
+               <td align="right">20.824</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>199</td>
+               <td>function ia-func:cutParentDirRelativeCommands</td>
+               <td align="right">2097</td>
+               <td align="right">0.359</td>
+               <td align="right">753.671</td>
+               <td align="right">0.010</td>
+               <td align="right">20.636</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>130</td>
+               <td>template ia-index:*</td>
+               <td align="right">53</td>
+               <td align="right">31.446</td>
+               <td align="right">1666.631</td>
+               <td align="right">0.363</td>
+               <td align="right">19.254</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>185</td>
+               <td>template insertPageStylesAndScripts</td>
+               <td align="right">517</td>
+               <td align="right">1.648</td>
+               <td align="right">852.237</td>
+               <td align="right">0.037</td>
+               <td align="right">19.109</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>59</td>
+               <td>function ia-func:getSortString</td>
+               <td align="right">2391</td>
+               <td align="right">0.206</td>
+               <td align="right">493.526</td>
+               <td align="right">0.008</td>
+               <td align="right">18.630</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>16</td>
+               <td>function ia-func:getTopicType</td>
+               <td align="right">1551</td>
+               <td align="right">0.350</td>
+               <td align="right">543.259</td>
+               <td align="right">0.012</td>
+               <td align="right">18.274</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>161</td>
+               <td>function ia-func:replaceDuplicateSlashes</td>
+               <td align="right">1860</td>
+               <td align="right">0.034</td>
+               <td align="right">63.322</td>
+               <td align="right">0.010</td>
+               <td align="right">18.260</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>58</td>
+               <td>function ia-func:insertVariable</td>
+               <td align="right">2095</td>
+               <td align="right">1.139</td>
+               <td align="right">2385.804</td>
+               <td align="right">0.009</td>
+               <td align="right">18.258</td>
+            </tr>
+            <tr>
+               <td>"*-resources.xsl"</td>
+               <td>10</td>
+               <td>template excludeUnassignedResources</td>
+               <td align="right">311</td>
+               <td align="right">0.326</td>
+               <td align="right">101.499</td>
+               <td align="right">0.053</td>
+               <td align="right">16.618</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>112</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">1639</td>
+               <td align="right">0.860</td>
+               <td align="right">1410.354</td>
+               <td align="right">0.010</td>
+               <td align="right">16.473</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>144</td>
+               <td>function ia-func:removeDuplicateSlashes</td>
+               <td align="right">1860</td>
+               <td align="right">0.080</td>
+               <td align="right">148.058</td>
+               <td align="right">0.009</td>
+               <td align="right">16.165</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>170</td>
+               <td>function ia-func:preserveTrailingParentDirRelativeCommands</td>
+               <td align="right">1910</td>
+               <td align="right">0.507</td>
+               <td align="right">967.972</td>
+               <td align="right">0.008</td>
+               <td align="right">15.992</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>284</td>
+               <td>template insertImage</td>
+               <td align="right">221</td>
+               <td align="right">0.072</td>
+               <td align="right">15.944</td>
+               <td align="right">0.072</td>
+               <td align="right">15.944</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>337</td>
+               <td>template createPublicationConfigFile</td>
+               <td align="right">1</td>
+               <td align="right">70.120</td>
+               <td align="right">70.120</td>
+               <td align="right">15.768</td>
+               <td align="right">15.768</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>190</td>
+               <td>function ia-func:cutCurrentDirRelativeCommands</td>
+               <td align="right">1639</td>
+               <td align="right">0.023</td>
+               <td align="right">37.683</td>
+               <td align="right">0.009</td>
+               <td align="right">15.338</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>124</td>
+               <td>template createStopWordsList</td>
+               <td align="right">1</td>
+               <td align="right">39.244</td>
+               <td align="right">39.244</td>
+               <td align="right">15.328</td>
+               <td align="right">15.328</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>216</td>
+               <td>function ia-func:removeRelativeCommands</td>
+               <td align="right">1639</td>
+               <td align="right">0.660</td>
+               <td align="right">1082.495</td>
+               <td align="right">0.009</td>
+               <td align="right">14.943</td>
+            </tr>
+            <tr>
+               <td>"*opic-basic.xsl"</td>
+               <td>113</td>
+               <td>template insert-title-anchors</td>
+               <td align="right">1158</td>
+               <td align="right">0.127</td>
+               <td align="right">147.225</td>
+               <td align="right">0.012</td>
+               <td align="right">14.303</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>101</td>
+               <td>function ia-func:getCurrentTableFormat</td>
+               <td align="right">1465</td>
+               <td align="right">0.140</td>
+               <td align="right">205.722</td>
+               <td align="right">0.010</td>
+               <td align="right">14.294</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>219</td>
+               <td>template *[contains(@class, ' topic/image ')]</td>
+               <td align="right">221</td>
+               <td align="right">0.312</td>
+               <td align="right">69.009</td>
+               <td align="right">0.064</td>
+               <td align="right">14.205</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>64</td>
+               <td>function ia-func:removeFileNameExtension</td>
+               <td align="right">1051</td>
+               <td align="right">0.013</td>
+               <td align="right">14.066</td>
+               <td align="right">0.013</td>
+               <td align="right">14.066</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>221</td>
+               <td>template __insertMetadataAudience</td>
+               <td align="right">517</td>
+               <td align="right">0.027</td>
+               <td align="right">13.936</td>
+               <td align="right">0.027</td>
+               <td align="right">13.936</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>197</td>
+               <td>template *[contains(@class, ' topic/thead ')]//*[contains(@class, ' topic/entry ')]/*[contains(@class,
+                  ' topic/p ')]
+               </td>
+               <td align="right">364</td>
+               <td align="right">0.169</td>
+               <td align="right">61.487</td>
+               <td align="right">0.038</td>
+               <td align="right">13.755</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>10</td>
+               <td>template createDummyCustomRootNodesJS</td>
+               <td align="right">1</td>
+               <td align="right">16.790</td>
+               <td align="right">16.790</td>
+               <td align="right">12.737</td>
+               <td align="right">12.737</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>63</td>
+               <td>function ia-func:getDescendantTopics</td>
+               <td align="right">517</td>
+               <td align="right">0.139</td>
+               <td align="right">71.788</td>
+               <td align="right">0.024</td>
+               <td align="right">12.447</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>162</td>
+               <td>function ia-func:getResourcePathById</td>
+               <td align="right">1137</td>
+               <td align="right">0.152</td>
+               <td align="right">172.816</td>
+               <td align="right">0.011</td>
+               <td align="right">12.010</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>260</td>
+               <td>function ia-func:stripSpace</td>
+               <td align="right">517</td>
+               <td align="right">0.022</td>
+               <td align="right">11.384</td>
+               <td align="right">0.022</td>
+               <td align="right">11.384</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>46</td>
+               <td>template insertTableAttributes</td>
+               <td align="right">179</td>
+               <td align="right">0.184</td>
+               <td align="right">32.970</td>
+               <td align="right">0.062</td>
+               <td align="right">11.122</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-art.xsl"</td>
+               <td>12</td>
+               <td>template processImage</td>
+               <td align="right">221</td>
+               <td align="right">0.122</td>
+               <td align="right">27.028</td>
+               <td align="right">0.050</td>
+               <td align="right">11.083</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>57</td>
+               <td>template logInfoMessage</td>
+               <td align="right">525</td>
+               <td align="right">0.182</td>
+               <td align="right">95.475</td>
+               <td align="right">0.021</td>
+               <td align="right">10.820</td>
+            </tr>
+            <tr>
+               <td>"*ypographic.xsl"</td>
+               <td>31</td>
+               <td>template *[contains(@class, ' hi-d/i ')]</td>
+               <td align="right">410</td>
+               <td align="right">0.060</td>
+               <td align="right">24.479</td>
+               <td align="right">0.026</td>
+               <td align="right">10.688</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>373</td>
+               <td>template getEntryNumber</td>
+               <td align="right">32</td>
+               <td align="right">0.330</td>
+               <td align="right">10.548</td>
+               <td align="right">0.330</td>
+               <td align="right">10.548</td>
+            </tr>
+            <tr>
+               <td>"*html-utils.xsl"</td>
+               <td>326</td>
+               <td>template insertGoogleAnalyticsHook</td>
+               <td align="right">517</td>
+               <td align="right">0.020</td>
+               <td align="right">10.506</td>
+               <td align="right">0.020</td>
+               <td align="right">10.506</td>
+            </tr>
+            <tr>
+               <td>"*s-metadata.xsl"</td>
+               <td>90</td>
+               <td>template __insertMetadataSysvar</td>
+               <td align="right">517</td>
+               <td align="right">0.020</td>
+               <td align="right">10.313</td>
+               <td align="right">0.020</td>
+               <td align="right">10.313</td>
+            </tr>
+            <tr>
+               <td>"*l/hlp-root.xsl"</td>
+               <td>36</td>
+               <td>template /</td>
+               <td align="right">1</td>
+               <td align="right">54134.468</td>
+               <td align="right">54134.468</td>
+               <td align="right">9.953</td>
+               <td align="right">9.953</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>101</td>
+               <td>function ia-func:findAllXrefAnchorsById</td>
+               <td align="right">1051</td>
+               <td align="right">0.473</td>
+               <td align="right">497.336</td>
+               <td align="right">0.009</td>
+               <td align="right">9.946</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>85</td>
+               <td>function ia-func:getXrefTargetAnchor</td>
+               <td align="right">1051</td>
+               <td align="right">0.544</td>
+               <td align="right">571.671</td>
+               <td align="right">0.009</td>
+               <td align="right">9.882</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>145</td>
+               <td>function ia-func:getResourceSpecById</td>
+               <td align="right">1137</td>
+               <td align="right">0.017</td>
+               <td align="right">18.908</td>
+               <td align="right">0.009</td>
+               <td align="right">9.836</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>405</td>
+               <td>function ia-func:isExternalAnchor</td>
+               <td align="right">1051</td>
+               <td align="right">0.053</td>
+               <td align="right">55.738</td>
+               <td align="right">0.009</td>
+               <td align="right">9.646</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>91</td>
+               <td>template insertOrderedListStartAttribute</td>
+               <td align="right">109</td>
+               <td align="right">0.085</td>
+               <td align="right">9.315</td>
+               <td align="right">0.085</td>
+               <td align="right">9.284</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>721</td>
+               <td>template *</td>
+               <td align="right">517</td>
+               <td align="right">0.112</td>
+               <td align="right">57.948</td>
+               <td align="right">0.018</td>
+               <td align="right">9.237</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>61</td>
+               <td>function ia-func:removeFileNameExtension</td>
+               <td align="right">1051</td>
+               <td align="right">0.022</td>
+               <td align="right">23.281</td>
+               <td align="right">0.009</td>
+               <td align="right">9.215</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>149</td>
+               <td>function ia-func:getResourceSpecById</td>
+               <td align="right">1137</td>
+               <td align="right">0.008</td>
+               <td align="right">9.072</td>
+               <td align="right">0.008</td>
+               <td align="right">9.072</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>185</td>
+               <td>template *[contains(@class, ' adsk-d/glyph ')]</td>
+               <td align="right">102</td>
+               <td align="right">0.257</td>
+               <td align="right">26.209</td>
+               <td align="right">0.088</td>
+               <td align="right">8.988</td>
+            </tr>
+            <tr>
+               <td>"*cpm-tables.xsl"</td>
+               <td>81</td>
+               <td>template insertTableRowClassAttribute</td>
+               <td align="right">162</td>
+               <td align="right">0.208</td>
+               <td align="right">33.661</td>
+               <td align="right">0.055</td>
+               <td align="right">8.906</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>285</td>
+               <td>function ia-func:correctImgPath</td>
+               <td align="right">221</td>
+               <td align="right">0.118</td>
+               <td align="right">25.982</td>
+               <td align="right">0.040</td>
+               <td align="right">8.825</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>350</td>
+               <td>function ia-func:constructXrefLink</td>
+               <td align="right">1051</td>
+               <td align="right">0.827</td>
+               <td align="right">869.050</td>
+               <td align="right">0.008</td>
+               <td align="right">8.806</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>561</td>
+               <td>template createHrefNotSpecifiedWarningPage</td>
+               <td align="right">1</td>
+               <td align="right">13.653</td>
+               <td align="right">13.653</td>
+               <td align="right">8.760</td>
+               <td align="right">8.760</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>418</td>
+               <td>function ia-func:prepareJSString</td>
+               <td align="right">698</td>
+               <td align="right">0.111</td>
+               <td align="right">77.818</td>
+               <td align="right">0.012</td>
+               <td align="right">8.649</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>291</td>
+               <td>function ia-func:getXrefTargetId</td>
+               <td align="right">1051</td>
+               <td align="right">0.107</td>
+               <td align="right">112.347</td>
+               <td align="right">0.008</td>
+               <td align="right">8.463</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>189</td>
+               <td>template insertIndexPageMetadata</td>
+               <td align="right">1</td>
+               <td align="right">8.002</td>
+               <td align="right">8.002</td>
+               <td align="right">8.002</td>
+               <td align="right">8.002</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>84</td>
+               <td>template logBookProperties</td>
+               <td align="right">1</td>
+               <td align="right">44.825</td>
+               <td align="right">44.825</td>
+               <td align="right">7.933</td>
+               <td align="right">7.933</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>152</td>
+               <td>template *[contains(@class, ' topic/fig ')]</td>
+               <td align="right">24</td>
+               <td align="right">0.703</td>
+               <td align="right">16.879</td>
+               <td align="right">0.324</td>
+               <td align="right">7.777</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>167</td>
+               <td>template *[contains(@class, ' sw-d/filepath ')]</td>
+               <td align="right">169</td>
+               <td align="right">0.098</td>
+               <td align="right">16.641</td>
+               <td align="right">0.045</td>
+               <td align="right">7.661</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>108</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">570</td>
+               <td align="right">0.756</td>
+               <td align="right">430.819</td>
+               <td align="right">0.013</td>
+               <td align="right">7.500</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>48</td>
+               <td>template logDebugMessage</td>
+               <td align="right">70</td>
+               <td align="right">0.527</td>
+               <td align="right">36.892</td>
+               <td align="right">0.097</td>
+               <td align="right">6.770</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>614</td>
+               <td>function ia-func:getMapTopicref</td>
+               <td align="right">517</td>
+               <td align="right">0.259</td>
+               <td align="right">133.716</td>
+               <td align="right">0.012</td>
+               <td align="right">6.267</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>696</td>
+               <td>function ia-func:splitToSeq</td>
+               <td align="right">218</td>
+               <td align="right">0.029</td>
+               <td align="right">6.251</td>
+               <td align="right">0.029</td>
+               <td align="right">6.251</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>148</td>
+               <td>function ia-func:decodeTabOrder</td>
+               <td align="right">1</td>
+               <td align="right">5.828</td>
+               <td align="right">5.828</td>
+               <td align="right">5.828</td>
+               <td align="right">5.828</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>623</td>
+               <td>function ia-func:getTopicrefs</td>
+               <td align="right">517</td>
+               <td align="right">0.106</td>
+               <td align="right">54.551</td>
+               <td align="right">0.011</td>
+               <td align="right">5.699</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>45</td>
+               <td>template *[contains(@class, ' map/map ')]</td>
+               <td align="right">1</td>
+               <td align="right">34158.561</td>
+               <td align="right">34158.561</td>
+               <td align="right">5.357</td>
+               <td align="right">5.357</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>226</td>
+               <td>function ia-func:stripFilePrefix</td>
+               <td align="right">357</td>
+               <td align="right">0.136</td>
+               <td align="right">48.446</td>
+               <td align="right">0.015</td>
+               <td align="right">5.334</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>214</td>
+               <td>function ia-func:createHref</td>
+               <td align="right">517</td>
+               <td align="right">0.063</td>
+               <td align="right">32.385</td>
+               <td align="right">0.010</td>
+               <td align="right">5.198</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>170</td>
+               <td>template insertBodyOnLoadAttribute</td>
+               <td align="right">517</td>
+               <td align="right">0.010</td>
+               <td align="right">5.031</td>
+               <td align="right">0.010</td>
+               <td align="right">5.031</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>452</td>
+               <td>function ia-func:prepareJSVariable</td>
+               <td align="right">151</td>
+               <td align="right">0.085</td>
+               <td align="right">12.854</td>
+               <td align="right">0.032</td>
+               <td align="right">4.784</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>105</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">570</td>
+               <td align="right">0.764</td>
+               <td align="right">435.568</td>
+               <td align="right">0.008</td>
+               <td align="right">4.749</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>116</td>
+               <td>function ia-func:stripLocaleNameFromResourcePath</td>
+               <td align="right">356</td>
+               <td align="right">1.694</td>
+               <td align="right">602.915</td>
+               <td align="right">0.013</td>
+               <td align="right">4.640</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>94</td>
+               <td>function ia-func:getBaseDir</td>
+               <td align="right">357</td>
+               <td align="right">0.396</td>
+               <td align="right">141.519</td>
+               <td align="right">0.013</td>
+               <td align="right">4.490</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>114</td>
+               <td>function ia-func:getBSTopicByHref</td>
+               <td align="right">517</td>
+               <td align="right">0.097</td>
+               <td align="right">49.963</td>
+               <td align="right">0.008</td>
+               <td align="right">4.383</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>257</td>
+               <td>function ia-func:stripSpace</td>
+               <td align="right">517</td>
+               <td align="right">0.030</td>
+               <td align="right">15.375</td>
+               <td align="right">0.008</td>
+               <td align="right">3.991</td>
+            </tr>
+            <tr>
+               <td>"*-resources.xsl"</td>
+               <td>70</td>
+               <td>function ia-func:isCopyableResource</td>
+               <td align="right">269</td>
+               <td align="right">0.521</td>
+               <td align="right">140.166</td>
+               <td align="right">0.013</td>
+               <td align="right">3.597</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>83</td>
+               <td>template insertOrderedListTypeAttribute</td>
+               <td align="right">109</td>
+               <td align="right">0.031</td>
+               <td align="right">3.393</td>
+               <td align="right">0.031</td>
+               <td align="right">3.393</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>552</td>
+               <td>template *[contains(@class,' titlepage/legalnotices ')]</td>
+               <td align="right">1</td>
+               <td align="right">16.825</td>
+               <td align="right">16.825</td>
+               <td align="right">2.860</td>
+               <td align="right">2.860</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>465</td>
+               <td>function ia-func:getParameter</td>
+               <td align="right">42</td>
+               <td align="right">4.443</td>
+               <td align="right">186.626</td>
+               <td align="right">0.064</td>
+               <td align="right">2.671</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>181</td>
+               <td>template insertBodyDataAttributes</td>
+               <td align="right">517</td>
+               <td align="right">0.005</td>
+               <td align="right">2.665</td>
+               <td align="right">0.005</td>
+               <td align="right">2.665</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>600</td>
+               <td>function ia-func:combinePath</td>
+               <td align="right">8</td>
+               <td align="right">0.813</td>
+               <td align="right">6.502</td>
+               <td align="right">0.329</td>
+               <td align="right">2.633</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>349</td>
+               <td>template insertPubConfigMainData</td>
+               <td align="right">1</td>
+               <td align="right">54.278</td>
+               <td align="right">54.278</td>
+               <td align="right">2.429</td>
+               <td align="right">2.429</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>692</td>
+               <td>function ia-func:splitToSeq</td>
+               <td align="right">218</td>
+               <td align="right">0.039</td>
+               <td align="right">8.473</td>
+               <td align="right">0.010</td>
+               <td align="right">2.222</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>406</td>
+               <td>template createLabels</td>
+               <td align="right">1</td>
+               <td align="right">27.932</td>
+               <td align="right">27.932</td>
+               <td align="right">2.137</td>
+               <td align="right">2.137</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>462</td>
+               <td>template createUIOptions</td>
+               <td align="right">1</td>
+               <td align="right">7.720</td>
+               <td align="right">7.720</td>
+               <td align="right">1.883</td>
+               <td align="right">1.883</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>278</td>
+               <td>function ia-func:correctImgPath</td>
+               <td align="right">221</td>
+               <td align="right">0.126</td>
+               <td align="right">27.777</td>
+               <td align="right">0.008</td>
+               <td align="right">1.795</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>104</td>
+               <td>template node() | @*</td>
+               <td align="right">12</td>
+               <td align="right">1022.214</td>
+               <td align="right">12266.563</td>
+               <td align="right">0.144</td>
+               <td align="right">1.726</td>
+            </tr>
+            <tr>
+               <td>"*-variables.xsl"</td>
+               <td>76</td>
+               <td>template getChmDefaultHref</td>
+               <td align="right">1</td>
+               <td align="right">2.016</td>
+               <td align="right">2.016</td>
+               <td align="right">1.695</td>
+               <td align="right">1.695</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>717</td>
+               <td>template *</td>
+               <td align="right">27</td>
+               <td align="right">0.057</td>
+               <td align="right">1.539</td>
+               <td align="right">0.057</td>
+               <td align="right">1.539</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>141</td>
+               <td>function ia-func:getCurrentCETableFormat</td>
+               <td align="right">179</td>
+               <td align="right">0.141</td>
+               <td align="right">25.190</td>
+               <td align="right">0.008</td>
+               <td align="right">1.516</td>
+            </tr>
+            <tr>
+               <td>"*hlp-search.xsl"</td>
+               <td>143</td>
+               <td>template createSearchOptions</td>
+               <td align="right">1</td>
+               <td align="right">1.452</td>
+               <td align="right">1.452</td>
+               <td align="right">1.452</td>
+               <td align="right">1.452</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>449</td>
+               <td>function ia-func:prepareJSVariable</td>
+               <td align="right">151</td>
+               <td align="right">0.094</td>
+               <td align="right">14.126</td>
+               <td align="right">0.008</td>
+               <td align="right">1.272</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>63</td>
+               <td>template *</td>
+               <td align="right">1</td>
+               <td align="right">1.701</td>
+               <td align="right">1.701</td>
+               <td align="right">1.218</td>
+               <td align="right">1.218</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>248</td>
+               <td>template insertIndexPageHeadScripts</td>
+               <td align="right">1</td>
+               <td align="right">18.108</td>
+               <td align="right">18.108</td>
+               <td align="right">1.201</td>
+               <td align="right">1.201</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>385</td>
+               <td>template insertListFooterULClassAttribute</td>
+               <td align="right">90</td>
+               <td align="right">0.011</td>
+               <td align="right">1.002</td>
+               <td align="right">0.011</td>
+               <td align="right">1.002</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>373</td>
+               <td>template @id</td>
+               <td align="right">85</td>
+               <td align="right">0.034</td>
+               <td align="right">2.861</td>
+               <td align="right">0.010</td>
+               <td align="right">0.869</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>461</td>
+               <td>function ia-func:getParameter</td>
+               <td align="right">13</td>
+               <td align="right">1.982</td>
+               <td align="right">25.761</td>
+               <td align="right">0.065</td>
+               <td align="right">0.842</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>655</td>
+               <td>template *[contains(@class,' ui-d/menucascade ')]</td>
+               <td align="right">55</td>
+               <td align="right">1.001</td>
+               <td align="right">55.028</td>
+               <td align="right">0.012</td>
+               <td align="right">0.667</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>322</td>
+               <td>template *[contains(@class, ' topic/keyword ')]</td>
+               <td align="right">28</td>
+               <td align="right">0.055</td>
+               <td align="right">1.535</td>
+               <td align="right">0.023</td>
+               <td align="right">0.647</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>389</td>
+               <td>function ia-func:getDefaultPage</td>
+               <td align="right">1</td>
+               <td align="right">0.515</td>
+               <td align="right">0.515</td>
+               <td align="right">0.515</td>
+               <td align="right">0.515</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>54</td>
+               <td>function ia-func:insertVariableToJS</td>
+               <td align="right">27</td>
+               <td align="right">0.889</td>
+               <td align="right">24.003</td>
+               <td align="right">0.018</td>
+               <td align="right">0.479</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>66</td>
+               <td>template logWarnMessage</td>
+               <td align="right">20</td>
+               <td align="right">0.162</td>
+               <td align="right">3.237</td>
+               <td align="right">0.024</td>
+               <td align="right">0.473</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>30</td>
+               <td>function ia-func:getLastDirName</td>
+               <td align="right">2</td>
+               <td align="right">0.251</td>
+               <td align="right">0.502</td>
+               <td align="right">0.227</td>
+               <td align="right">0.455</td>
+            </tr>
+            <tr>
+               <td>"*formatting.xsl"</td>
+               <td>27</td>
+               <td>template *[contains(@class, ' sw-d/msgph ')]</td>
+               <td align="right">13</td>
+               <td align="right">0.055</td>
+               <td align="right">0.718</td>
+               <td align="right">0.031</td>
+               <td align="right">0.397</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>719</td>
+               <td>template insertPubConfigBooklist</td>
+               <td align="right">1</td>
+               <td align="right">0.427</td>
+               <td align="right">0.427</td>
+               <td align="right">0.372</td>
+               <td align="right">0.372</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>71</td>
+               <td>function ia-func:expandResourceFileList</td>
+               <td align="right">17</td>
+               <td align="right">24.133</td>
+               <td align="right">410.264</td>
+               <td align="right">0.019</td>
+               <td align="right">0.324</td>
+            </tr>
+            <tr>
+               <td>"*sl/hlp-toc.xsl"</td>
+               <td>48</td>
+               <td>template /</td>
+               <td align="right">1</td>
+               <td align="right">12265.712</td>
+               <td align="right">12265.712</td>
+               <td align="right">0.306</td>
+               <td align="right">0.306</td>
+            </tr>
+            <tr>
+               <td>"*-templates.xsl"</td>
+               <td>51</td>
+               <td>function ia-func:insertVariableToJS</td>
+               <td align="right">27</td>
+               <td align="right">0.900</td>
+               <td align="right">24.308</td>
+               <td align="right">0.011</td>
+               <td align="right">0.305</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>459</td>
+               <td>function ia-func:getParameter</td>
+               <td align="right">13</td>
+               <td align="right">2.002</td>
+               <td align="right">26.027</td>
+               <td align="right">0.020</td>
+               <td align="right">0.266</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>267</td>
+               <td>template insertBookConfigReferences</td>
+               <td align="right">1</td>
+               <td align="right">0.239</td>
+               <td align="right">0.239</td>
+               <td align="right">0.239</td>
+               <td align="right">0.239</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>171</td>
+               <td>function ia-func:getAbsoluteResourcePathById</td>
+               <td align="right">2</td>
+               <td align="right">0.099</td>
+               <td align="right">0.198</td>
+               <td align="right">0.099</td>
+               <td align="right">0.198</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>597</td>
+               <td>function ia-func:combinePath</td>
+               <td align="right">8</td>
+               <td align="right">0.826</td>
+               <td align="right">6.612</td>
+               <td align="right">0.014</td>
+               <td align="right">0.110</td>
+            </tr>
+            <tr>
+               <td>"*ypographic.xsl"</td>
+               <td>40</td>
+               <td>template *[contains(@class, ' hi-d/sup ')]</td>
+               <td align="right">4</td>
+               <td align="right">0.064</td>
+               <td align="right">0.258</td>
+               <td align="right">0.022</td>
+               <td align="right">0.090</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>388</td>
+               <td>function ia-func:getDefaultPage</td>
+               <td align="right">1</td>
+               <td align="right">0.582</td>
+               <td align="right">0.582</td>
+               <td align="right">0.067</td>
+               <td align="right">0.067</td>
+            </tr>
+            <tr>
+               <td>"*topic-body.xsl"</td>
+               <td>113</td>
+               <td>template *[contains(@class, ' topic/draft-comment ')]</td>
+               <td align="right">3</td>
+               <td align="right">0.032</td>
+               <td align="right">0.095</td>
+               <td align="right">0.017</td>
+               <td align="right">0.050</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>570</td>
+               <td>function ia-func:getUntabbedJavaScript</td>
+               <td align="right">2</td>
+               <td align="right">10.436</td>
+               <td align="right">20.872</td>
+               <td align="right">0.024</td>
+               <td align="right">0.049</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>669</td>
+               <td>function ia-func:getResourceSet</td>
+               <td align="right">6</td>
+               <td align="right">8.017</td>
+               <td align="right">48.103</td>
+               <td align="right">0.007</td>
+               <td align="right">0.042</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>240</td>
+               <td>template insertIndexPageStyleSheets</td>
+               <td align="right">1</td>
+               <td align="right">24.936</td>
+               <td align="right">24.936</td>
+               <td align="right">0.035</td>
+               <td align="right">0.035</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>27</td>
+               <td>function ia-func:getLastDirName</td>
+               <td align="right">2</td>
+               <td align="right">0.266</td>
+               <td align="right">0.531</td>
+               <td align="right">0.015</td>
+               <td align="right">0.029</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>168</td>
+               <td>function ia-func:getAbsoluteResourcePathById</td>
+               <td align="right">2</td>
+               <td align="right">0.111</td>
+               <td align="right">0.222</td>
+               <td align="right">0.012</td>
+               <td align="right">0.023</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>20</td>
+               <td>function ia-func:draft-comments-allowed</td>
+               <td align="right">3</td>
+               <td align="right">0.015</td>
+               <td align="right">0.045</td>
+               <td align="right">0.008</td>
+               <td align="right">0.023</td>
+            </tr>
+            <tr>
+               <td>"*htm-common.xsl"</td>
+               <td>23</td>
+               <td>function ia-func:draft-comments-allowed</td>
+               <td align="right">3</td>
+               <td align="right">0.007</td>
+               <td align="right">0.022</td>
+               <td align="right">0.007</td>
+               <td align="right">0.022</td>
+            </tr>
+            <tr>
+               <td>"*/cpm-lists.xsl"</td>
+               <td>7</td>
+               <td>template *[contains(@class, ' adsk-d/listintro ')]</td>
+               <td align="right">1</td>
+               <td align="right">0.067</td>
+               <td align="right">0.067</td>
+               <td align="right">0.018</td>
+               <td align="right">0.018</td>
+            </tr>
+            <tr>
+               <td>"*-variables.xsl"</td>
+               <td>72</td>
+               <td>template getDefaultHref</td>
+               <td align="right">1</td>
+               <td align="right">2.032</td>
+               <td align="right">2.032</td>
+               <td align="right">0.016</td>
+               <td align="right">0.016</td>
+            </tr>
+            <tr>
+               <td>"*.functions.xsl"</td>
+               <td>12</td>
+               <td>function ia-func:loadResourceElements</td>
+               <td align="right">1</td>
+               <td align="right">2027.120</td>
+               <td align="right">2027.120</td>
+               <td align="right">0.013</td>
+               <td align="right">0.013</td>
+            </tr>
+            <tr>
+               <td>"*xsl/hlp-ui.xsl"</td>
+               <td>144</td>
+               <td>function ia-func:decodeTabOrder</td>
+               <td align="right">1</td>
+               <td align="right">5.837</td>
+               <td align="right">5.837</td>
+               <td align="right">0.009</td>
+               <td align="right">0.009</td>
+            </tr>
+            <tr>
+               <td>"*/hlp-index.xsl"</td>
+               <td>9</td>
+               <td>template createIndexOptions</td>
+               <td align="right">1</td>
+               <td align="right">0.006</td>
+               <td align="right">0.006</td>
+               <td align="right">0.006</td>
+               <td align="right">0.006</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>

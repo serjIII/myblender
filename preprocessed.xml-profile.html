@@ -1,0 +1,262 @@
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Analysis of Stylesheet Execution Time</title>
+   </head>
+   <body>
+      <h1>Analysis of Stylesheet Execution Time</h1>
+      <p>Total time: 6003.960 milliseconds</p>
+      <h2>Time spent in each template or function:</h2>
+      <p>The table below is ordered by the total net time spent in the template or   function.
+         Gross time means the time including called templates and functions;  net time means
+         time excluding time spent in called templates and functions.
+      </p>
+      <table border="border" cellpadding="10">
+         <thead>
+            <tr>
+               <th>file</th>
+               <th>line</th>
+               <th>instruction</th>
+               <th>count</th>
+               <th>average time (gross)</th>
+               <th>total time (gross)</th>
+               <th>average time (net)</th>
+               <th>total time (net)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>"*path-adder.xsl"</td>
+               <td>32</td>
+               <td>template *</td>
+               <td align="right">35199</td>
+               <td align="right">0.710</td>
+               <td align="right">24998.357</td>
+               <td align="right">0.116</td>
+               <td align="right">4076.436</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>84</td>
+               <td>function ia-func:getBSTopicByGid</td>
+               <td align="right">517</td>
+               <td align="right">0.402</td>
+               <td align="right">207.597</td>
+               <td align="right">0.402</td>
+               <td align="right">207.597</td>
+            </tr>
+            <tr>
+               <td>"*path-adder.xsl"</td>
+               <td>20</td>
+               <td>template *[contains(@class, ' topic/topic ')]</td>
+               <td align="right">517</td>
+               <td align="right">23.992</td>
+               <td align="right">12404.103</td>
+               <td align="right">0.401</td>
+               <td align="right">207.453</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>469</td>
+               <td>function ia-func:getParameter</td>
+               <td align="right">2</td>
+               <td align="right">9.753</td>
+               <td align="right">19.506</td>
+               <td align="right">9.753</td>
+               <td align="right">19.506</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>207</td>
+               <td>function ia-func:cutParentDirRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">6.179</td>
+               <td align="right">12.358</td>
+               <td align="right">6.179</td>
+               <td align="right">12.358</td>
+            </tr>
+            <tr>
+               <td>"*path-adder.xsl"</td>
+               <td>16</td>
+               <td>template /</td>
+               <td align="right">1</td>
+               <td align="right">4507.321</td>
+               <td align="right">4507.321</td>
+               <td align="right">8.078</td>
+               <td align="right">8.078</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>81</td>
+               <td>function ia-func:getBSTopicByGid</td>
+               <td align="right">517</td>
+               <td align="right">0.417</td>
+               <td align="right">215.354</td>
+               <td align="right">0.015</td>
+               <td align="right">7.757</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>173</td>
+               <td>function ia-func:preserveTrailingParentDirRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">9.469</td>
+               <td align="right">18.938</td>
+               <td align="right">3.192</td>
+               <td align="right">6.383</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>116</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">2</td>
+               <td align="right">12.397</td>
+               <td align="right">24.794</td>
+               <td align="right">1.554</td>
+               <td align="right">3.107</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>465</td>
+               <td>function ia-func:getParameter</td>
+               <td align="right">2</td>
+               <td align="right">10.703</td>
+               <td align="right">21.406</td>
+               <td align="right">0.950</td>
+               <td align="right">1.900</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>147</td>
+               <td>function ia-func:removeDuplicateSlashes</td>
+               <td align="right">2</td>
+               <td align="right">0.986</td>
+               <td align="right">1.973</td>
+               <td align="right">0.840</td>
+               <td align="right">1.679</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>222</td>
+               <td>function ia-func:removeRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">9.827</td>
+               <td align="right">19.653</td>
+               <td align="right">0.347</td>
+               <td align="right">0.693</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>166</td>
+               <td>function ia-func:replaceDuplicateSlashes</td>
+               <td align="right">2</td>
+               <td align="right">0.089</td>
+               <td align="right">0.177</td>
+               <td align="right">0.089</td>
+               <td align="right">0.177</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>199</td>
+               <td>function ia-func:cutParentDirRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">6.238</td>
+               <td align="right">12.475</td>
+               <td align="right">0.059</td>
+               <td align="right">0.117</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>161</td>
+               <td>function ia-func:replaceDuplicateSlashes</td>
+               <td align="right">2</td>
+               <td align="right">0.147</td>
+               <td align="right">0.294</td>
+               <td align="right">0.058</td>
+               <td align="right">0.116</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>108</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">2</td>
+               <td align="right">12.436</td>
+               <td align="right">24.872</td>
+               <td align="right">0.027</td>
+               <td align="right">0.054</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>193</td>
+               <td>function ia-func:cutCurrentDirRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">0.027</td>
+               <td align="right">0.054</td>
+               <td align="right">0.027</td>
+               <td align="right">0.054</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>216</td>
+               <td>function ia-func:removeRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">9.844</td>
+               <td align="right">19.687</td>
+               <td align="right">0.017</td>
+               <td align="right">0.034</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>144</td>
+               <td>function ia-func:removeDuplicateSlashes</td>
+               <td align="right">2</td>
+               <td align="right">1.000</td>
+               <td align="right">1.999</td>
+               <td align="right">0.013</td>
+               <td align="right">0.026</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>190</td>
+               <td>function ia-func:cutCurrentDirRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">0.040</td>
+               <td align="right">0.080</td>
+               <td align="right">0.013</td>
+               <td align="right">0.026</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>112</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">2</td>
+               <td align="right">12.409</td>
+               <td align="right">24.818</td>
+               <td align="right">0.012</td>
+               <td align="right">0.024</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>105</td>
+               <td>function ia-func:correctFilePath</td>
+               <td align="right">2</td>
+               <td align="right">12.448</td>
+               <td align="right">24.896</td>
+               <td align="right">0.012</td>
+               <td align="right">0.023</td>
+            </tr>
+            <tr>
+               <td>"*-functions.xsl"</td>
+               <td>170</td>
+               <td>function ia-func:preserveTrailingParentDirRelativeCommands</td>
+               <td align="right">2</td>
+               <td align="right">9.480</td>
+               <td align="right">18.960</td>
+               <td align="right">0.011</td>
+               <td align="right">0.022</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>
