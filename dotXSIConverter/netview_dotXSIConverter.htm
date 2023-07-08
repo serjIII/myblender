@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../../../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../scripts/prettify.js"></script><script src="../../../../../../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><script type="text/javascript" src="../../../scripts/utils/adsk.redirect.js"></script>
+      <title>dotXSIConverter</title>
+   
+</head>
+   <body height="100%"><div class="body_content" id="body-content"><style>
+/*  These settings override ones in the default stylesheets
+	used by the merged files that cause problems in combination
+	with the standard HTML help styles and page templates. */
+
+div, div.example, div.tip {
+	 margin:0;
+}
+
+td.example {
+	background: inherit;
+}
+
+/* This fixes a problem with nested pre blocks on an example page */
+pre pre {
+	display:block;
+	padding:0;
+	border-style:none;
+}
+</style><link rel="StyleSheet" href="examples/Addons/dotXSIConverter/doc/shared/examples.css" type="text/css" /><script>$(document).ready(function() { yepnope.injectJs("./examples/Addons/dotXSIConverter/doc/shared/utils.js"); });</script><script>$(document).ready(function() { yepnope.injectJs("./examples/Addons/scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./examples/Addons/scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div>
+         <div class="head">
+            <h1>dotXSIConverter</h1>
+         </div>
+
+<div class="body"><a name="top"></a>
+
+
+
+<img class="netview" src="netview_dotXSIConverter.jpg" style="float:left;padding-right:6px;" />
+<h1>dotXSIConverter</h1>
+
+<p>This example provides the source code for a dotXSI converter.
+</p>
+
+<p class="note" style="margin-top:16px"><strong>Note</strong> XSI includes a compiled version of dotXSIConverter in <span class="envVar">XSI_HOME</span>/Application/Plugins.</p>
+
+
+<h2>Example Files</h2>
+<table><tr>
+<td><strong>Location</strong></td><td><span class="installPath"></span>
+</td>
+</tr>
+
+<tr>
+<td><strong>Files</strong></td>
+<td>
+	<div class="examplefile" folder="src">plugin_stub.cpp</div>
+	<div class="examplefile" folder="src">dotXSIConverter.cpp</div>
+	<div class="examplefile" folder="src">dotXSIConverterCallback.cpp</div>
+	<div class="examplefile" folder="src">dotXSIConverter.vcproj</div>
+	<div class="examplefile" folder="src">GNUmakefile</div>
+	<div class="examplefile" folder="doc">dotXSIConverter.chm</div>
+</td>
+</tr>
+
+
+</table>
+
+
+<h2>Running the Example</h2>
+
+<div id="toinstall" style="display:none">
+<p class="proc-head">To install the example</p>
+<ul>
+<li><p>Connect to the XSI SDK workgroup at <span class="workgroupPath">%XSISDK_ROOT%\examples\workgroup</span>.</p>
+	<ol>
+	<li>In the <strong>Plug-in Manager</strong>, click the <strong>Workgroups</strong> tab.</li>
+	<li>Click <strong>File</strong> and then click <strong>Connect</strong>.</li>
+	<li>In the <strong>Connect to Workgroup</strong> dialog box, click <img src="..\..\doc\shared\bBrowse.gif" />, locate the workgroup folder, and then click <strong>Select</strong>.</li>
+	</ol>
+</li>
+</ul>
+
+<p class="proc-head">To view the help page for an example</p>
+
+<ul>
+<li>Do one of the following:</li>
+<ul>
+<li>In the Plug-in Tree, expand the SDK examples workgroup, right-click the example add-on and then click <strong>Help</strong>.
+</li>
+<li>
+Open a Net View and click <img style="position:relative;bottom:-6px;" src="..\..\doc\shared\xsiweb.png" /> to go to XSI Net local. In the top navigation bar, click <strong>add-ons</strong>, and then click the SDK example add-on.
+</li>
+</ul>
+</ul>
+</div>
+
+
+<div>
+<p class="proc-head">To run the example</p>
+
+<ul>
+<li>To export to dotXSI 5, click <strong>File &gt; Export &gt; dotXSI 5</strong>.</li>
+<li>To import a dotXSI 5 file, click <strong>File &gt; Import &gt; dotXSI 5</strong>.</li>
+</ul></div>
+
+
+
+
+
+<div id="linux-chm">
+<h2>Viewing the dotXSIConverter Help</h2>
+
+<p>The dotXSIConverter example includes a help file that uses the compiled HTML Help format. On Linux, support for the compiled HTML Help format relies on the MainWin environment.</p>
+
+<p class="proc-head">To view the compiled help on Linux:</p>
+
+
+<ol>
+<li>
+<p>In a terminal or shell window, source the .xsi file. By default, this file is located where the XSI program files are installed. For example:</p>
+<pre>source $XSI_HOME/<span class="linuxExt">.xsi_&lt;xsi_version&gt;</span></pre>
+</li>
+
+<li>
+<p>Run hh :</p>
+<pre>hh $XSISDK_ROOT/examples/workgroup/Addons/dotXSIConverter/doc/dotXSIConverter.chm</pre>
+</li>
+
+</ol>
+
+<p>
+To print topics from HTML Help, you have to add printers to your MainWin environment. The printers must already be set up for your Linux computer before you can select them for use with MainWin.
+</p>
+<p class="proc-head">To set up a printer in MainWin</p>
+<ul>
+<li>
+<p>In a terminal or shell window, source the .xsi file. By default, this file is located where the XSI program files are installed. For example:</p>
+<pre>source $XSI_HOME/<span class="linuxExt">.xsi_&lt;xsi_version&gt;</span></pre>
+</li>
+
+<li>
+<p>Run the MainWin Control Panel:</p>
+<pre>mwcontrol</pre>
+</li>
+
+<li>Double-click Printers. The Printers window opens, showing all previously configured printers.</li>
+<li>Double-click Add New Printer and follow the instructions in the wizard.	 </li>
+
+</ul>
+</div>
+
+
+
+<a name="build"></a><h2>Building the C++ Example</h2>
+
+<p>
+XSI SDK includes a compiled version of dotXSIConverter. If you want to modify the code, you can rebuild the example by following these instructions.</p>
+
+<div id="windows-build">
+<p class="proc-head">To build the example on Windows</p>
+<ol>
+<li><p><span class="sishell" cppsrc="src">Open</span> an XSI command prompt, and type <strong>devenv</strong> to start Visual Studio .NET.</p>
+<p>Starting Visual Studio .NET from an XSI command prompt ensures that environment variables such as XSISDK_ROOT are set (otherwise you'll get build and link errors).</p>
+
+<p><strong>Tip</strong> To load the <span class="devenv" vcproj="src\dotXSIConverter.vcproj">dotXSIConverter</span> project from the command line, type:</p>
+<pre>devenv <span class="installPath">src\dotXSIConverter.vcproj</span></pre>
+
+</li>
+<li>In Visual Studio .NET, open the project file .vcproj.</li>
+<li>Select a configuration (Win32 Release or Win32 Debug) and build the DLL.</li>
+</ol>
+</div>
+
+
+<div id="linux-build">
+<p class="proc-head">To build the example on Linux</p>
+<ol>
+<li>
+<p>In a shell (tcsh) window, type:</p>
+<pre>source $XSI_HOME/<span class="linuxExt">.xsi_&lt;xsi_version&gt;</span></pre>
+</li>
+
+<li>
+<p>Change directories to</p>
+<pre><span class="installPath">src</span></pre>
+
+</li>
+
+<li>
+<p>To remove all intermediate files before building the example, run this command:</p>
+<pre>gmake clean</pre>
+</li>
+
+<li>
+<p />To compile the example, run this command:<p />
+<pre>gmake</pre>
+</li>
+</ol>
+</div>
+
+<div id="keywords">
+<h2>Keywords</h2>
+<p>This example uses the following keywords:</p>
+<p>
+C++ example, import, export, dotXSI
+</p>
+</div>
+
+
+</div>
+      <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /></div>
+   </div></body>
+</html>

@@ -1,0 +1,1181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0024)http://docs.autodesk.com -->
+<html>
+   <head>
+<link href="../../../../style/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../../../scripts/prettify.js"></script><script src="../../../../../../../../../../../../../../../scripts/lib/jquery-1.9.1.min.js" type="text/javascript"></script><meta http-equiv="Content-Type" content="text/html; charset=windows-1252" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><script type="text/javascript" src="../../../../scripts/utils/adsk.redirect.js"></script>
+      <title>CREATING AN OPERATOR TO MANIPULATE PARTICLE CLOUDS</title>
+   
+</head>
+   <body height="100%"><div class="body_content" id="body-content"><style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:553679495 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:windowtext;}
+h1
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.15pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:8.0pt;
+	font-family:Arial;
+	color:black;
+	text-transform:uppercase;
+	mso-font-kerning:18.0pt;
+	font-weight:bold;}
+h2
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:6.5pt;
+	font-family:Arial;
+	color:#006699;
+	text-transform:uppercase;
+	font-weight:bold;}
+h3
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:6.5pt;
+	font-family:Arial;
+	color:#FF6600;
+	text-transform:uppercase;
+	font-weight:bold;}
+h4
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:6.5pt;
+	font-family:Arial;
+	font-variant:small-caps;
+	color:#006699;
+	text-transform:uppercase;
+	font-weight:bold;}
+h5
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:5;
+	font-size:6.5pt;
+	font-family:Arial;
+	font-variant:small-caps;
+	color:#006699;
+	text-transform:uppercase;
+	font-weight:bold;}
+h6
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	mso-outline-level:6;
+	font-size:6.5pt;
+	font-family:Arial;
+	font-variant:small-caps;
+	color:#006699;
+	text-transform:uppercase;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:#CC0000;
+	mso-text-animation:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-ascii-font-family:Arial;
+	mso-hansi-font-family:Arial;
+	mso-bidi-font-family:Arial;
+	color:#CC0000;
+	mso-text-animation:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+p
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	color:windowtext;}
+p.author, li.author, div.author
+	{mso-style-name:author;
+	margin-top:0in;
+	margin-right:1.55pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#FF6600;}
+p.onsitedate, li.onsitedate, div.onsitedate
+	{mso-style-name:onsitedate;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#FF6600;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.onsitetitle, li.onsitetitle, div.onsitetitle
+	{mso-style-name:onsitetitle;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#006699;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.onsitelink, li.onsitelink, div.onsitelink
+	{mso-style-name:onsitelink;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#3399CC;
+	text-transform:uppercase;}
+p.cathead, li.cathead, div.cathead
+	{mso-style-name:cathead;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#336699;
+	font-weight:bold;}
+p.subcathead, li.subcathead, div.subcathead
+	{mso-style-name:subcathead;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#990000;
+	letter-spacing:.15pt;}
+p.galbody, li.galbody, div.galbody
+	{mso-style-name:galbody;
+	margin-top:0in;
+	margin-right:20.0pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:7.3pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.h3bak, li.h3bak, div.h3bak
+	{mso-style-name:h3bak;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:5.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	font-variant:small-caps;
+	color:#FF6600;
+	text-transform:uppercase;}
+p.galname, li.galname, div.galname
+	{mso-style-name:galname;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-indent:-2.0pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	font-variant:small-caps;
+	color:#CC0000;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.galtitle, li.galtitle, div.galtitle
+	{mso-style-name:galtitle;
+	margin-top:0in;
+	margin-right:5.0pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:5.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	font-variant:small-caps;
+	color:#FF6600;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.leadin, li.leadin, div.leadin
+	{mso-style-name:leadin;
+	margin-top:0in;
+	margin-right:1.55pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:6.5pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.cs, li.cs, div.cs
+	{mso-style-name:cs;
+	margin-top:0in;
+	margin-right:1.55pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:6.25pt;
+	mso-pagination:widow-orphan;
+	font-size:5.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.cs1, li.cs1, div.cs1
+	{mso-style-name:cs1;
+	margin-top:0in;
+	margin-right:1.55pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:6.25pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+p.mag, li.mag, div.mag
+	{mso-style-name:mag;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:125%;
+	mso-pagination:widow-orphan;
+	font-size:6.5pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#333333;}
+p.menuitems, li.menuitems, div.menuitems
+	{mso-style-name:menuitems;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:7.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#DD0000;
+	text-transform:uppercase;}
+p.menulev1, li.menulev1, div.menulev1
+	{mso-style-name:menulev1;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:5.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:black;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.menulev2, li.menulev2, div.menulev2
+	{mso-style-name:menulev2;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:#666666;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.menulev3, li.menulev3, div.menulev3
+	{mso-style-name:menulev3;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:#999999;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.menulev4, li.menulev4, div.menulev4
+	{mso-style-name:menulev4;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:#999999;}
+p.menulev3old, li.menulev3old, div.menulev3old
+	{mso-style-name:menulev3old;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	font-variant:small-caps;
+	color:#CC0000;
+	text-transform:uppercase;}
+p.form, li.form, div.form
+	{mso-style-name:form;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	mso-pagination:widow-orphan;
+	background:white;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.formleft, li.formleft, div.formleft
+	{mso-style-name:formleft;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.formrequire, li.formrequire, div.formrequire
+	{mso-style-name:formrequire;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#993333;
+	font-weight:bold;}
+p.formrequireleft, li.formrequireleft, div.formrequireleft
+	{mso-style-name:formrequireleft;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#993333;}
+p.forminput, li.forminput, div.forminput
+	{mso-style-name:forminput;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:white;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.check, li.check, div.check
+	{mso-style-name:check;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.radio, li.radio, div.radio
+	{mso-style-name:radio;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+p.oshead, li.oshead, div.oshead
+	{mso-style-name:oshead;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:2.6pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:#3F3F3F;}
+p.osblurb, li.osblurb, div.osblurb
+	{mso-style-name:osblurb;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:13.05pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:#191919;}
+p.osdate, li.osdate, div.osdate
+	{mso-style-name:osdate;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:4.5pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:Arial;
+	color:#FF3300;}
+p.old, li.old, div.old
+	{mso-style-name:old;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#FF3300;}
+p.quoteinfo, li.quoteinfo, div.quoteinfo
+	{mso-style-name:quoteinfo;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	line-height:6.8pt;
+	mso-pagination:widow-orphan;
+	font-size:6.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:"Times New Roman";
+	color:#666666;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1224098950;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-18547570 1449439722 -113886900 -1732449728 1450206988 -1200459378 -193066552 2045957752 1396235712 -1502713232;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:1787692724;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1750709650 -177173446 135308838 -2082962032 1501323640 -1651892706 -799743552 59778108 1420849478 429411696;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:1989892747;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1738230268 650257828 1674760936 -1542033128 195052508 -733300576 1853536312 -1073723622 4483548 -1849922446;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style><style>
+/*  These settings override ones in the default stylesheets
+	used by the merged files that cause problems in combination
+	with the standard HTML help styles and page templates. */
+
+div, div.example, div.tip {
+	 margin:0;
+}
+
+td.example {
+	background: inherit;
+}
+
+/* This fixes a problem with nested pre blocks on an example page */
+pre pre {
+	display:block;
+	padding:0;
+	border-style:none;
+}
+</style><link rel="File-List" href="examples/Addons/ParticleOp/cppsrc/Creating%20an%20Operator%20to%20Manipulate%20Particle%20Clouds_files/filelist.xml" /><link rel="Edit-Time-Data" href="examples/Addons/ParticleOp/cppsrc/Creating%20an%20Operator%20to%20Manipulate%20Particle%20Clouds_files/editdata.mso" /><script>$(document).ready(function() { yepnope.injectJs("./examples/Addons/ParticleOp/cppsrc/scripts/ac_common.js"); });</script><script type="text/javascript">var reflinkid = "si_cpp"; var reflinkdata = new Array(); function closeRefLinkDiv() { }; $(document).on('click', function() { closeRefLinkDiv(); } );</script><script>$(document).ready(function() { yepnope.injectJs("./examples/Addons/ParticleOp/scripts/multireflink.js"); });</script><script>$(document).ready(function () { prettyPrint(); } );</script><script>$("div#WidgetFloaterPanels,link[href*='microsofttranslator.com'],script[src*='microsofttranslator.com'],script[src*='bing.com']").remove();</script><script type='text/javascript'>$("div#navigation,div#breadcrumbs,div#banner").attr("translate","no"); var mtLocation = ((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=y5CYlxTRD0znCzRLDwX0Wy7-g1EdC1XA4dSC-Y1LtaeScyli8_Ps5jPKqTr4xKxMI0OOUfkDplvX3uxN0JnPclebSYW8_J1HBzf4VLQEzQ8M4PsYXF_cMyp1Oumaetky&category=5297189e-446b-459e-ae1d-9d0360400781_tech&ctf=True&ui=true&settings=Manual&from=en&hidelanguages='; yepnope.injectJs(mtLocation, function() {}, { charset:'utf-8', type:'text/javascript' } );</script><script type="text/javascript">
+ </script><!-- begin MT -->
+            
+            <div id='MicrosoftTranslatorWidget' class='Dark' style='position:absolute;right:20px;top:5px;z-index:100;color:white;background-color:#555555;height:58px;overflow:hidden'></div><div id="reflinkdiv" style="display:none; font-family: 'RobotoRegular', Arial, Tahoma, sans-serif; visibility:hidden; position:absolute; z-index:40001; padding:5px; border-style:solid; border-width:1px; border-color:#666666; background-color:#dfdfdf; overflow:visible"></div>
+      <div>
+         <div class="head">
+            <h1>CREATING AN OPERATOR TO MANIPULATE PARTICLE CLOUDS</h1>
+         </div>
+
+
+<div class="Section1">
+
+<h2>Creating an Operator to Manipulate Particle Clouds<o:p></o:p></h2>
+
+<p>This example demonstrates how to write a compiled Softimage operator that manipulates
+a particle cloud. In this example, the particles in the cloud are made to flock
+together, and a custom property page allows the user to tweak the variables
+that control the flocking behavior. This example uses Softimage's C++ API.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>This case study is divided into two parts:<o:p></o:p></p>
+
+<ul style='margin-top:0in' type="square">
+ <li class="MsoNormal" style='color:#666666;line-height:7.3pt;mso-list:l0 level1 lfo1;
+     tab-stops:list .5in'><span style='font-size:6.0pt;font-family:Arial'><a href="http://bamboo/support/Xsi/SDK/CaseStudies/ParticleOp/#Part 1">Part 1</a>:
+     Describes how to download, install, and compile the operator. <o:p></o:p></span></li>
+ <li class="MsoNormal" style='color:#666666;line-height:7.3pt;mso-list:l0 level1 lfo1;
+     tab-stops:list .5in'><span style='font-size:6.0pt;font-family:Arial'><a href="http://bamboo/support/Xsi/SDK/CaseStudies/ParticleOp/#Part 2">Part 2</a>:
+     Describes the how the operator was developed, including the user
+     interface. <o:p></o:p></span></li>
+</ul>
+
+<h2><span style='font-size:12.0pt;color:#3399CC'>Part 1</span><o:p></o:p></h2>
+
+<h2>Getting Started<o:p></o:p></h2>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>Installation<o:p></o:p></h3>
+
+<p>Drag and drop the ExampleParticleOp.xsiaddon file into Softimage or choose the
+File &gt; Add-ons &gt; Install command. Creating your own add-on is discussed
+further in <a href="http://bamboo/support/Xsi/SDK/CaseStudies/ParticleOp/#Installing the SPDL and dll">Installing
+the Plug-in</a>.&nbsp;An .xsiaddon file demonstrates how easily a plug-in can
+be distributed, even when it contains a compiled .dll.&nbsp;<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>using the example<o:p></o:p></h3>
+
+<p>The add-on file creates the ExampleParticleOp toolbar. Click the Demo button
+to launch a sample script (ExampleParticleOpDemo.vbs), which creates a scene to
+demonstrate the capabilities of the operator. Move the sliders on the property
+page to change the space in which the simulation occurs and the flocking
+behavior of the particles.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+ o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+ stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" alt="" style='width:637.5pt;
+ height:337.5pt'>
+ <v:imagedata src="ExampleUse.jpg"
+  o:href="http://bamboo/support/Xsi/SDK/CaseStudies/ParticleOp/images/ExampleUse.jpg"/>
+</v:shape><![endif]--><![if !vml]><img border="0" width="850" height="450" src="ExampleUse.jpg" v:shapes="_x0000_i1025" /><![endif]><o:p></o:p></p>
+
+<p>You can use the operator on basically any particle cloud. You can freeze the
+particle cloud and apply the operator with the &quot;ApplyOp&quot; command. For
+more details see ExampleParticleOpDemo.vbs.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>Compilation<o:p></o:p></h3>
+
+<p>From Microsoft Visual Studio, load the ExampleParticleOp.dsp file as the
+workspace and compile. Visual Studio needs to be configured with the Softimage SDK
+include path in the list of include paths. See the <i>Plug-in Integration</i>
+guide for more information about setting up your environment to compile an Softimage
+plug-in.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h2><span style='font-size:12.0pt;color:#3399CC'>Part 2</span><o:p></o:p></h2>
+
+<h2>Case Study - building the Plug-in<o:p></o:p></h2>
+
+<p>This section gives some additional details on the workflow used to develop
+this plug-in, with the aim of giving you an idea how to build your own Softimage
+plug-in operators. The following steps are covered:<o:p></o:p></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Choosing the type of plug-in and doing some design. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Prototyping as a scripted operator. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Converting from a scripted operator to a C++ plug-in, getting it
+compiled, installed and ready for debugging. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Implementing the algorithm. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Exposing pParameters to control the algorithm's behavior. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Providing a custom UI for the operator's property page. <o:p></o:p></span></p>
+
+<p class="MsoNormal" style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in;line-height:7.3pt;
+mso-list:l2 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:6.0pt;font-family:Wingdings;
+mso-bidi-font-family:Arial;color:#666666'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]><span style='font-size:6.0pt;font-family:Arial;
+color:#666666'>Packing the finished plug-in as an add-on. <o:p></o:p></span></p>
+
+<h3>Planning/Design<o:p></o:p></h3>
+
+<p>The first step in writing a plug-in is careful consideration of the purpose
+of the plug-in. This is important for any software project, but specifically in
+the context of Softimage this includes the consideration of:<o:p></o:p></p>
+
+<ul style='margin-top:0in' type="square">
+ <li class="MsoNormal" style='color:#666666;line-height:7.3pt;mso-list:l1 level1 lfo3;
+     tab-stops:list .5in'><span style='font-size:6.0pt;font-family:Arial'>Whether
+     the plug-in should be immediate or persistent. <o:p></o:p></span></li>
+ <li class="MsoNormal" style='color:#666666;line-height:7.3pt;mso-list:l1 level1 lfo3;
+     tab-stops:list .5in'><span style='font-size:6.0pt;font-family:Arial'>Which
+     scripting language or compiled technology to use. <o:p></o:p></span></li>
+ <li class="MsoNormal" style='color:#666666;line-height:7.3pt;mso-list:l1 level1 lfo3;
+     tab-stops:list .5in'><span style='font-size:6.0pt;font-family:Arial'>How
+     the plug-in will interact with the user, including the user interface. <o:p></o:p></span></li>
+ <li class="MsoNormal" style='color:#666666;line-height:7.3pt;mso-list:l1 level1 lfo3;
+     tab-stops:list .5in'><span style='font-size:6.0pt;font-family:Arial'>In
+     the case of an Softimage Operator, what inputs and outputs will define the
+     operator's interaction with the rest of Softimage. <o:p></o:p></span></li>
+</ul>
+
+<p>In this case, with the goal of creating a custom particle simulation, a
+persistent effect, in particular an Softimage operator, is the most suitable type of
+plug-in because it provides behavior similar to that of Softimage's built-in cloud
+simulation--when the user presses <b>Play</b>, they automatically see the
+simulation occur. An immediate effect, like a custom command, could also change
+the positions of particles in the cloud, but it would only do this when the
+command is executed.&nbsp;<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>Prototyping from Scripted Operator<o:p></o:p></h3>
+
+<p>The initial proof-of-concept work was all done in Softimage using a Scripted
+Operator.&nbsp;<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>When developing a plug-in it is often very useful to establish a demo script
+immediately.<span style="mso-spacerun: yes">� </span>This can be better than
+reusing a scene file, because it makes the steps to use the plug-in very clear,
+and avoids unexpected dependencies on the contents of a scene file.<span style="mso-spacerun: yes">� </span>So, in this case, the first step was to
+create a simple script to create a frozen cloud:<o:p></o:p></p>
+
+<pre><span style='font-size:7.5pt;color:black'>'ExampleParticleOpDemo.vbs<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>'<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>'Initial script to set up the particle cloud<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>'with a specified number of particles<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'>option explicit<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'>dim g_NumberOfParticles<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>g_NumberOfParticles = 27<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>SetupScene()<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>sub SetupScene()<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>dim oCloud, oEmitter, oCluster, oUDM, oOps, oOp<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>NewScene ,false<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>set oCloud = CreateParticleCloud().Item( 0 )<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>'Use an emitter to create our particles<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>set oEmitter= CreatePrim( &quot;Sphere&quot;, &quot;MeshSurface&quot;, &quot;ParticleEmitter&quot; )<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>AddParticleEmitter oCloud, oEmitter <o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>'At 1 second the number of particles specified by the<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>'emission rate will have been reached<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>SetValue oEmitter &amp; &quot;.ParticleEmitter_emission.Rate&quot;, g_NumberOfParticles<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>SetValue &quot;PlayControl.Current&quot;, 30<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>'Now get rid of the emitter and freeze the cloud - we will<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>'simulate the particles ourselves<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>FreezeObj oCloud<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>DeleteObj oEmitter<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>oEmitter = Empty<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>SetValue &quot;PlayControl.Current&quot;, 1<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>end sub</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<p>The cloud is frozen to remove the built-in Softimage particle simulator operator.&nbsp;
+When the scene is played back after running this scrip,&nbsp; the particles do
+not move at all.&nbsp; Next a simple scripted operator was attached to the
+particle cloud primitive, which will take care of driving the particle
+simulation:<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p><!--[if gte vml 1]><v:shape id="_x0000_i1026" type="#_x0000_t75" alt=""
+ style='width:562.5pt;height:465pt'>
+ <v:imagedata src="ScriptOpExperiments.jpg"
+  o:href="http://bamboo/support/Xsi/SDK/CaseStudies/ParticleOp/images/ScriptOpExperiments.jpg"/>
+</v:shape><![endif]--><![if !vml]><img border="0" width="750" height="620" src="ScriptOpExperiments.jpg" v:shapes="_x0000_i1026" /><![endif]><o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>At this point there is no flocking algorithm, just some simple code to
+access the input and output object and to move the particles.&nbsp; By default
+a scripted operator will only be reevaluated if one of its input objects has
+changed.&nbsp; To force this operator to reevaluate at each frame, an animated
+parameter called �TimeVar� is added.&nbsp;<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>Notice how Application.Logmessage is used to print values into the script
+window as a means of debugging.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>Moving to C++<o:p></o:p></h3>
+
+<p>Once the basic concept of controlling the cloud shape is working, you can
+start moving the implementation to C++. The first step is saving the Scripted
+Operator's SPDL file as ExampleParticleOp.spdl. The SPDL file is shown
+below:&nbsp;<o:p></o:p></p>
+
+<pre><span style='font-size:7.5pt;color:black'>SPDL<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>Version = &quot;2.0.0.1&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>Reference = &quot;{CCEEAC35-D311-4F71-9D71-96E0C337D021}&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>Name = &quot;ParticleOpExample&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>PropertySet &quot;ExampleParticleOp_Params&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>Parameter &quot;ExampleParticleOp&quot; input<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:3'>������������������������������ </span>GUID<span style="mso-spacerun: yes">� </span>= {CCEEAC35-D311-4F71-9D71-96E0C337D021};<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Type<span style="mso-spacerun: yes">� </span>= VT_EMPTY;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Caps<span style="mso-spacerun: yes">� </span>= Persistable; /* 0x00000004 */<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>Parameter &quot;TimeVar&quot; input<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>GUID<span style="mso-spacerun: yes">� </span>= {A5572AA8-FD13-41B2-857B-4F26729DE222};<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Name<span style="mso-spacerun: yes">� </span>= &quot;TimeVar&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Description = &quot;TimeVar&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Type<span style="mso-spacerun: yes">� </span>= VT_I4;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Caps<span style="mso-spacerun: yes">� </span>= Persistable, Animatable; /* 0x00000005 */<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Class = Visualization, 0x00004060; /* 0x00004061 */<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Value = 0;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Range = 0 To 400;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>PortSet &quot;ScriptedOpPrototype_Ports&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>Group &quot;Group_0&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Origin = Select;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>Output &quot;Out_Cloud&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:3'>������������������������������ </span>Major = {E80A1590-CA13-11CF-91B9-00AA00624C2D};<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:3'>������������������������������ </span>Minor = {3A9ECA60-4F91-11D0-AA46-00A0243E34C4};<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:3'>������������������������������ </span>Interface = {CDEA6775-415B-11D0-AA40-00A0243E34C4};<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:3'>������������������������������ </span>Attributes = 0x00000001;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>Plugin = Scripted<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>Language = &quot;VBScript&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>Update =<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>BeginScript<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>dim oCloud <o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>'Output port is connected to the ParticleCloudPrimitve obj<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>set oCloud = Out.Value<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>logmessage &quot;Evaluation Ouput:&quot; &amp; oCloud &amp; &quot;, Input: &quot; &amp; oUDM<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>set oPos = xsimath.CreateVector3<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>set oParticleColl = oCloud.Particles<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>'For the purposes of our protype just demonstrate<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>'that we can move all the particles each frame<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>for cnt = 0 to oParticleColl.Count - 1<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>set oParticle = oParticleColl.Item( cnt )<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>oPos.x = 0.1 * oParticle.ID<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>oPos.y = -2 + 0.05 * In_UpdateContext.CurrentFrame<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span></span><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'>oPos.z = 0<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><span style='mso-tab-count:1'>��������� </span>oParticle.Position = oPos<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>next<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>EndScript<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>Helpers =<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>BeginScript<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>EndScript<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>}</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<p>There are three major sections to this file: <b>PropertySet</b>, <b>PortSet</b>,
+and <b>Plugin</b>. In order to port to C++, the Plugin section is changed to
+the following (the # symbol denotes a comment line):<o:p></o:p></p>
+
+<pre><span style='font-size:7.5pt;color:#666666'>Plugin = Library<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:1'>��������� </span>#defines the dll name<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:1'>��������� </span>Filename = &quot;ExampleParticleOp&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:1'>��������� </span>EntryPoints<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:1'>��������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:2'>������������������� </span>#Name of the exported API function<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:2'>������������������� </span>Update = &quot;ExampleParticleOp_Update&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:2'>������������������� </span></span><span style='font-size:7.5pt;mso-bidi-font-size:12.0pt;mso-fareast-font-family:"Times New Roman";
+color:black'>Term = &quot;ExampleParticleOp_Term&quot;;</span><span style='font-size:7.5pt;color:#666666'><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'><span style='mso-tab-count:1'>��������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:#666666'>}</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<p>The next step is creating a .dll (ExampleParticleOp) with<span style="mso-spacerun: yes">� </span>two entry
+points:&nbsp;ExampleParticleOp_Update and ExampleParticleOp_Term.<span style="mso-spacerun: yes">� </span>The .dll is created in the same directory as
+ExampleParticleOp.spdl. Initially, empty implementations are created as
+follows:<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p><span style='font-size:7.5pt;font-family:"Courier New";color:black'>CStatus
+ExampleParticleOp_Init</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>(</span><o:p></o:p></p>
+
+<p><span style='mso-tab-count:1'>��������������� </span><span style='font-family:
+"Courier New";color:black'>UpdateContext&amp;<span style='mso-tab-count:1'>������ </span>in_ctx,</span><o:p></o:p></p>
+
+<p><span style='mso-tab-count:1'>��������������� </span><span style='font-family:
+"Courier New";color:black'>OutputPort&amp;<span style='mso-tab-count:2'>��������� </span>&nbsp;&nbsp;&nbsp;<span style='mso-tab-count:2'>���������� </span>in_outPort</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>)</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>{</span><o:p></o:p></p>
+
+<p><span style='mso-tab-count:1'>��������������� </span><span style='font-family:
+"Courier New";color:black'>return CStatus::OK ;&nbsp;</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>}</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>CStatus ExampleParticleOp_Term(</span><o:p></o:p></p>
+
+<p><span style='mso-tab-count:4'>��������������������������������������������������������������� </span><span style='font-family:"Courier New";color:black'>XSI::UpdateContext&amp; in_rCtx,</span><o:p></o:p></p>
+
+<p><span style='mso-tab-count:4'>��������������������������������������������������������������� </span><span style='font-family:"Courier New";color:black'>long )</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>{</span><o:p></o:p></p>
+
+<p><span style='mso-tab-count:1'>��������������� </span><span style='font-family:
+"Courier New";color:black'>return CStatus::OK ;&nbsp;</span><o:p></o:p></p>
+
+<p><span style='font-family:"Courier New";color:black'>}</span><o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>An empty implementation of ExampleParticleOp_Update is implemented
+(returning S_OK) and the project compiles properly, and is ready for testing in
+Softimage.&nbsp;<o:p></o:p></p>
+
+<h3>&nbsp;<o:p></o:p></h3>
+
+<h3><span style='color:#3399CC'>Installing the SPDL and dll</span><o:p></o:p></h3>
+
+<p>For the end user of a plug-in, the Softimage add-on format makes installing and
+uninstalling the plug-in easy. However as a plug-in developer you need to do
+some more manual work to get the plug-in installed.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>Once the debug configuration is compiled, the ExampleParticleOp.dll file is
+created in the Debug subdirectories. (Make sure that only one of either Debug
+or Release is present, otherwise Softimage will install both). Next this command is
+used from the Softimage command prompt to copy the SPDL file and .dll into the
+Softimage user directory.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p><i>xsi -i ExampleParticleOpDemo.SPDL</i> <o:p></o:p></p>
+
+<p>This operation also registers the plug-in and creates the
+ExampleParticleOp.preset file. Preset files contain the initial values for the
+parameters.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>Once installed it is time to extend the demo script,
+ExampleParticleOpDemo.vbs, so that it applies the new operator.<span style="mso-spacerun: yes">� </span>This is done by adding the following code.<o:p></o:p></p>
+
+<pre><span style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:#666666'><span style='mso-tab-count:1'>��������� </span></span><span style='font-size:7.5pt;
+color:black'><span style="mso-spacerun: yes">�</span>on error resume next<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set oOps = ApplyOp(&quot;ExampleParticleOpCpp&quot;)<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if err &lt;&gt; 0 then<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; logmessage &quot;The ExampleParticleOp is not properly installed.&nbsp; Please try re-installing the addon file&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit sub<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; end if <o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on error goto 0<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set oOp = oOps.Item(0)<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetKey oOp &amp; &quot;.TimeVar&quot;, 1, 0<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SetKey oOp &amp; &quot;.TimeVar&quot;, 100, 400<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>&nbsp;</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<p>Although the .dll was still just an empty stub, this demonstrates that
+everything is working well enough to start doing some actual development. Because
+you know the original VBScript code works, the next step is to implement
+ExampleParticleOp_Update by porting the VBScript code into C++, for
+example:&nbsp;<o:p></o:p></p>
+
+<pre><span style='color:gray'><span style='mso-tab-count:1'>������� </span></span><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black'>set oCloud = Out.Value</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<p>becomes<o:p></o:p></p>
+
+<pre><span style='color:gray'><span style='mso-tab-count:2'>�������������� </span></span><span style='font-size:7.5pt;color:black'>&nbsp;&nbsp;&nbsp;</span><span style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black'>ParticleCloudPrimitive outCloudPrim(in_outPort.GetValue());<o:p><o:p></o:p></o:p></span></pre><pre><span style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre>
+
+<p>Now that you have a new .dll, Softimage needs to be updated by uninstalling and
+then reinstalling the .dll using:<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p><i>xsi -u ExampleParticleOpDemo.SPDL -silent<br />
+xsi -i ExampleParticleOpDemo.SPDL</i> <o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>After various iterations, you'll have a working operator that moves the
+particles in the cloud, at which point you're ready to start working on the
+details.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>Debugging<o:p></o:p></h3>
+
+<p>Problems in the SPDL file or missing .dlls will result in error messages
+inside Softimage or when &quot;xsi -i&quot; is run. However once this is working, you
+may want to debug your actual C++ code. Rather than resorting to <i style='mso-bidi-font-style:normal'>printf</i> statements, you can use the
+Visual Studio debugger effectively to step through the code and even use the
+Apply Code Changes feature to make code changes in memory without restarting
+the debugger.<o:p></o:p></p>
+
+<p>When you install your operator, your DLL is copied into the user directory,
+for example: <a href="file:///C:/users/%3cyourname%3e/Softimage/XSI_3.5/Application/bin/nt-x86/ParticleOpDemo.dll">C:\users\&lt;yourname&gt;\Softimage\XSI_3.5\Application\bin\nt-x86\ParticleOpDemo.dll</a>.
+Normally it is this copy that will get loaded when you use your operator.
+However if you wish to debug you can force Softimage to load the DLL from its
+original location by launching Softimage from the directory containing that DLL.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>You can do this in Visual Studio by specifying two settings under
+&quot;Project\Settings\Debug&quot;.<o:p></o:p></p>
+
+<p>1) Set the &quot;Executable for Debug Session&quot; to the full path of
+XSI.exe<o:p></o:p></p>
+
+<p>2) Set the &quot;Working Directory&quot; to the path of your operator's
+source code (where the .dll was compiled)<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>You cannot initially set a breakpoint.<span style="mso-spacerun: yes">�
+</span>However if you launch Softimage from the debugger and then apply your operator
+it will load the DLL and you will be able to set break points. (When you launch
+the debugger it will give a warning that XSI.exe does not contain debugger
+symbols.<span style="mso-spacerun: yes">� </span>You can safely ignore this).<o:p></o:p></p>
+
+<p>Once you are done developing and debugging be sure to re-run:<o:p></o:p></p>
+
+<p><i style='mso-bidi-font-style:normal'>xsi -u ExampleParticleOpDemo.SPDL
+-silent<br />
+xsi -i ExampleParticleOpDemo.SPDL</i>&nbsp;<o:p></o:p></p>
+
+<p>so that the copy of the .dll in the user directory is also updated.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>The Algorithm<o:p></o:p></h3>
+
+<p>Each evaluation of the operator is straightforward. It reads the previous
+positions, calculates the interactions between the particles, and moves each
+particle a small amount to represent their next positions. Based on research into
+flocking algorithms and experimentation, it was decided that the previous
+velocity vector of each particle was required. This avoids the boredom of each
+particle having a constant speed but more importantly defines the direction
+that the particle is moving.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>The flocking aspect of the algorithm uses the concept that a particle will
+tend to go in the same direction but that it will also be attracted to other
+particles that are reasonably close. It also uses random jitter and repulsion
+to make sure that the particles don't just all rush to the exact same point in
+space. A bounding sphere is used to keep the particles on the screen. There are
+some &quot;constants&quot; that give the user control over the behavior. For
+example the FlockInfluence is how much to weight the influence of other
+particles against the particle's natural momentum. For more details, see the
+actual implementation. <o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<h3>Simulation State<o:p></o:p></h3>
+
+<p>As described in the section on the Algorithm, it is necessary to know each
+particle's Velocity and Position at the previous frame. You may be tempted to
+use the Particle's Velocity and Position attributes to store this information.
+However, this is not a reliable method because of the possible interaction with
+other operators. Instead, the state of the simulation is tracked inside the
+operator using the GetUserData and SetUserData methods of the UpdateContext
+object. The plug-in creates an array containing the following structure for
+each particle.<o:p></o:p></p>
+
+<pre><span lang="FR" style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black;
+mso-ansi-language:FR'>struct PerParticleData<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black;
+mso-ansi-language:FR'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black;
+mso-ansi-language:FR'>{<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black;mso-ansi-language:
+FR'><span style='mso-tab-count:1'>��������� </span></span><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'>double pos[ 3 ] ;<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black;
+mso-ansi-language:FR'><span style='mso-tab-count:1'>��������� </span></span><span style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black'>double vel[ 3 ] ;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;mso-bidi-font-size:10.0pt;color:black'>} ;</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<p class="MsoNormal"><span style='font-size:7.5pt;font-family:Tahoma;color:black'>In
+theory, it is possible to imagine using a global variable to store this
+information.&nbsp; However by saving the buffer using
+UpdateContext::SetUserData there will be no risk of conflict with other
+instances of the operator in the same scene</span><span style='font-size:7.5pt;
+font-family:Tahoma;color:gray'>.</span><span style='font-size:8.0pt;font-family:
+Arial;color:#666666'> <o:p></o:p></span></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<h3>Adding Parameters<o:p></o:p></h3>
+
+<p>With a clear design from the onset you can potentially specify all the
+parameters directly at the time of prototyping the scripted operator. However
+commonly there is more an iterative process of adding parameters at a later time
+to offer more functionality to the user.&nbsp;<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p><span style='mso-bidi-font-size:12.0pt;color:gray'>The most direct way to
+add or change parameters to a compiled operator is to edit the SPDL file
+directly.<span style="mso-spacerun: yes">� </span>The format for the parameter
+section is fairly straightforward.<span style="mso-spacerun: yes">� </span>For example,
+the Bounding Sphere Radius is a double value with a default value of 6, a
+slider from 0.01 to 100 and a valid range from 0.01 to 1000.</span> <o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='color:#666666'>Bounding Spere Radius appears like this in the SPDL file:<o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='color:#666666'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-size:7.5pt;font-family:"Courier New";color:#666666'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:7.5pt;font-family:"Courier New";color:black'>Parameter
+&quot;BoundaryLength&quot; input</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Name&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= &quot;Bounding Sphere Radius&quot;;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Description&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+&quot;Bounding Sphere Radius&quot;;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang="FR" style='font-size:7.5pt;font-family:"Courier New";
+color:black;mso-ansi-language:FR'>Guid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; = &quot;{5CE83718-8581-4F08-A15D-FB6E2242E0D2}&quot;;</span><span lang="FR" style='color:#666666;mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span lang="FR" style='font-size:7.5pt;font-family:"Courier New";color:black;
+mso-ansi-language:FR'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:7.5pt;font-family:"Courier New";color:black'>Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= VT_R8;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Range&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0.01 to 1000;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Caps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= Persistable, Animatable;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= Unknown;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Value = 6.0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UIType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= &quot;Number&quot;;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+UIRange&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 0.01 to 100;</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p class="MsoNormal" style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span style='font-size:7.5pt;font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><span style='color:#666666'><o:p></o:p></span></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>The most important thing to remember when tweaking parameters is to make
+sure that each parameter has a unique GUID. If you ever cut and paste from
+another SPDL file you must change the GUID. Microsoft Visual Studio comes with
+a utility called guidgen which allows you to generate GUIDs. You will also need
+to reinstall the SPDL file each time you make a change to the parameter
+section.&nbsp;When editing the SPDL file it is important to edit the original
+copy of the SPDL file in the plug-in directory, not the copy of the SPDL file
+that is saved in the user directory.&nbsp; Any changes in the user directory
+version of the SPDL will be lost when the plug-in is reinstalled.<o:p></o:p></p>
+
+<p>&nbsp;<o:p></o:p></p>
+
+<p>Having these parameters on the Operators has no influence over the flocking
+behavior until you add more C++ code to read the values of the parameters. You
+can separate the code that performs the core algorithm from the code that
+communicates with Softimage. A simple structure called SimulationParams and a helper
+function called GetParameters() reads the state of the parameters and fills in
+the structure. The core algorithm just uses the SimulationParams structure.<o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<p>This is a screen shot showing how the operator appears in the Softimage explorer
+once all the parameters are added: <o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<p><!--[if gte vml 1]><v:shape id="_x0000_i1027" type="#_x0000_t75" alt=""
+ style='width:273.75pt;height:327.75pt'>
+ <v:imagedata src="OperatorInExplorer.jpg"
+  o:href="http://bamboo/support/Xsi/SDK/CaseStudies/ParticleOp/images/OperatorInExplorer.jpg"/>
+</v:shape><![endif]--><![if !vml]><img border="0" width="365" height="437" src="OperatorInExplorer.jpg" v:shapes="_x0000_i1027" /><![endif]><o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<h3>Customizing the Layout<o:p></o:p></h3>
+
+<p>You can also design your own custom layout for the property page. In this
+case related properties are grouped inside boxes. The TimeVar parameter is not
+included because this is a hidden parameter, used just to force evaluation at
+each frame.<o:p></o:p></p>
+
+<pre><span style='font-size:7.5pt;color:black'>Layout &quot;Default&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>group &quot;Behavior&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>&quot;FlockInfluence&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>&quot;FlockDistance&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>&quot;RepulsiveDistance&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>&quot;Velocity&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>&quot;DirectionVariance&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>group &quot;Particle Boundary&quot;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>{<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:2'>������������������� </span>&quot;BoundaryLength&quot;;<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span>group &quot;Centre of Simulation&quot; <o:p></o:p></span></pre><pre><span style='font-size:7.5pt;color:black'><span style='mso-tab-count:1'>��������� </span></span><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'>{<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><span style='mso-tab-count:2'>������������������� </span>&quot;x&quot;;<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><span style='mso-tab-count:2'>������������������� </span>&quot;y&quot;;<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><span style='mso-tab-count:2'>������������������� </span>&quot;z&quot;;<o:p></o:p></span></pre><pre><span lang="FR" style='font-size:7.5pt;color:black;mso-ansi-language:FR'><span style='mso-tab-count:1'>��������� </span></span><span style='font-size:7.5pt;
+color:black'>}<o:p></o:p></span></pre><pre><span style='font-size:7.5pt;
+color:black'>}</span><span style='color:#666666'><o:p></o:p></span></pre>
+
+<h3>Packaging the Example<o:p></o:p></h3>
+
+<p>Once satisfied that the plug-in works well enough to make an example, the SPDL
+is uninstalled,&nbsp; the debug .dll is deleted from the Debug subdirectory
+inside the project, a release version is compiled, and the SPDL is reinstalled.<o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<p>Softimage is restarted and some final touches are added to the example script and
+a new toolbar called ExampleParticleOp is created. Drag the script to the
+toolbar to create a new button called &quot;Demo&quot; that will execute this
+script.&nbsp; <o:p></o:p></p>
+
+<p>&nbsp; <o:p></o:p></p>
+
+<p>Use the File &gt; Add-on &gt; Package dialog to prepare the add-on. Pick the
+ExampleParticleOp toolbar and the ExampleParticleOp preset. Softimage automatically
+recognizes that the ExampleParticleOp.SPDL, and ExampleParticleOp.dll and
+ExampleParticleOpDemo.vbs files should also be included. The resulting xsiaddon
+file is a completely self contained file containing all these different elements.
+<o:p></o:p></p>
+
+<p class="MsoNormal"><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+      <div class="footer-block"><a href="../html/ac.cmtdialog.htm" class="comments-anchor" target="_blank"><span class="comments-link">Please send us your comment about this page</span></a></div><br /></div>
+   </div></body>
+</html>
